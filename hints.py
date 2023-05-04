@@ -1,77 +1,77 @@
 options = {
-	"activebackground": "Background color when the widget is under the cursor. "
+	"activebackground": "Background color when the widget is under the cursor."
 	                    "Use a style map to control the background option.",
-	"activeforeground": "Foreground color when the widget is under the cursor. "
+	"activeforeground": "Foreground color when the widget is under the cursor."
 	                    "Use a style map to control the foreground option.",
-	"activeborderwidth": "(Taken from Tk Commands)\n"
-	                     "Specifies a non-negative value indicating the width "
+	"activeborderwidth": "(Taken from Tk Commands)"
+	                     "\nSpecifies a non-negative value indicating the width "
 	                     "of the 3-D border drawn around active elements. See "
 	                     "above for definition of active elements. The value "
 	                     "may have any of the forms acceptable to "
 	                     "Tk_GetPixels. This option is typically only "
 	                     "available in widgets displaying more than one "
-	                     "element at a time (e.g. menus but not buttons). ",
+	                     "element at a time (e.g. menus but not buttons).",
 	"activerelief": "(Taken from Tk Commands)"
 	                "\nSpecifies the relief to use when displaying the element "
 	                "that is active, if any. Elements other than the active "
-	                "element are always displayed with a raised relief. ",
-	"activestyle": "This option specifies the appearance of the active line. "
+	                "element are always displayed with a raised relief.",
+	"activestyle": "This option specifies the appearance of the active line."
 	               "It may have any of these values:"
-	               "'underline'  The active line is underlined. This is the "
+	               "\n'underline' The active line is underlined. This is the "
 	               "default option."
-	               "'dotbox' The active line is enclosed in a dotted line on "
+	               "\n'dotbox' The active line is enclosed in a dotted line on "
 	               "all four sides."
-	               "'none' The active line is given no special appearance. ",
+	               "\n'none' The active line is given no special appearance.",
 	"anchor": "If the text and/or image are smaller than the specified width, "
 	          "you can use the anchor option to specify where to position "
 	          "them: tk.W, tk.CENTER, or tk.E for left, centered, or right "
 	          "alignment, respectively. You may also specify this option "
 	          "using a style."
-	          "\nFor example, if you use  anchor=NW, the widget will be placed "
+	          "\nFor example, if you use anchor=NW, the widget will be placed "
 	          "in the upper left corner of the space."
 	          "When the widget displays an image but no text, this option is "
 	          "ignored.",
 	"aspect": "Use this option to specify the ratio of width to height as a "
 	          "percentage. For example, aspect=100 would give you a text "
-	          "message fit into a square; with aspect=200, the text area would "
+	          "message fit into a square. with aspect=200, the text area would "
 	          "be twice as wide as high. The default value is 150, that is, "
-	          "the text will be fit into a box 50% wider than it is high. ",
+	          "the text will be fit into a box 50% wider than it is high.",
 	"autoseparators": "If the undo option is set, the autoseparators option of "
 	                  "a text widget"
 	                  "controls whether separators are automatically added to "
 	                  "the undo stack after each insertion or deletion (if "
-	                  "autoseparators=True) or not (if autoseparators=False). ",
+	                  "autoseparators=True) or not (if autoseparators=False).",
 	"background": "Normal background color. For the bitmap option, this "
-	              "specifies the color displayed for 0-bits in the bitmap. "
+	              "specifies the color displayed for 0-bits in the bitmap."
 	              "Configure the background option using a style.",
 	"bg": "Normal background color. For the bitmap option, this "
-	      "specifies the color displayed for 0-bits in the bitmap. "
+	      "specifies the color displayed for 0-bits in the bitmap."
 	      "Configure the background option using a style.",
 	"bigincrement": "(Taken from Tk Commands)"
 	                "\nSome interactions with the scale cause its value to "
-	                "change by “large” increments; this option specifies the "
+	                "change by “large” increments. this option specifies the "
 	                "size of the large increments. If specified as 0, "
 	                "the large increments default to 1/10 the range of the "
-	                "scale. ",
+	                "scale.",
 	"bitmap": "Name of one of the standard bitmaps to display on the widget ("
 	          "instead of text). To display a monochrome image on a button, "
 	          "set this option to a bitmap.",
 	"blockcursor": "Specifies a boolean that says whether the blinking "
 	               "insertion cursor should be drawn as a character-sized "
 	               "rectangular block. If false (the default) a thin vertical "
-	               "line is used for the insertion cursor. ",
+	               "line is used for the insertion cursor.",
 	"borderwidth": "The size of the border around the widget. Configure the "
-	               "borderwidth option using a style. ",
+	               "borderwidth option using a style.",
 	"bd": "The size of the border around the widget. Default is two "
-	      "pixels. Configure the borderwidth option using a style. ",
-	"buttonbackground": "The background color displayed on the arrowheads. ",
+	      "pixels. Configure the borderwidth option using a style.",
+	"buttonbackground": "The background color displayed on the arrowheads.",
 	"buttoncursor": "The cursor to be displayed when the mouse is over the "
-	                "arrowheads;",
-	"buttondownrelief": "The relief to be used for the upper spin button. ",
-	"buttonuprelief": "The relief to be used for the lower spin button. ",
-	"buttonup": "The relief style for the upward-pointing arrowhead;",
-	"class": "The widget class name.\n"
-	         "This may be specified when the widget is created, but cannot "
+	                "arrowheads.",
+	"buttondownrelief": "The relief to be used for the upper spin button.",
+	"buttonuprelief": "The relief to be used for the lower spin button.",
+	"buttonup": "The relief style for the upward-pointing arrowhead.",
+	"class": "The widget class name."
+	         "\nThis may be specified when the widget is created, but cannot "
 	         "be changed later."
 	         "\nYou can give a Toplevel window a “class” name. Such names are "
 	         "matched against the option database, so your application can "
@@ -84,11 +84,11 @@ options = {
 	         "\nand then, if you use the .option_readfile() method to read "
 	         "your option database, all widgets with that class name will "
 	         "default to a red background. This option is named class_ "
-	         "because class is a reserved word in Python. ",
+	         "because class is a reserved word in Python.",
 	"class_": "The widget class name. This may be specified when the widget is "
-	          "created, but cannot be changed later. ",
+	          "created, but cannot be changed later.",
 	"closeenough": "A float that specifies how close the mouse must be to an "
-	               "item to be considered inside it. Default is 1.0. ",
+	               "item to be considered inside it. Default is 1.0.",
 	"columns": "A sequence of column identifier strings. These strings are "
 	           "used internally to identify the columns within the widget. The "
 	           "icon column, whose identifier is always '#0', contains the "
@@ -98,9 +98,9 @@ options = {
 	           "\nFor example, if you specified columns=('Name', 'Size'), "
 	           "three columns would appear in the widget: first the icon "
 	           "column, then two more columns whose internal identifiers are "
-	           "'Name' and 'Size'. ",
-	"colormap": "(Taken from Tk Commands)\n"
-	            "Specifies a colormap to use for the window. The value may be "
+	           "'Name' and 'Size'.",
+	"colormap": "(Taken from Tk Commands)"
+	            "\nSpecifies a colormap to use for the window. The value may be "
 	            "either new, in which case a new colormap is created for the "
 	            "window and its children, or the name of another window (which "
 	            "must be on the same screen and have the same visual as "
@@ -108,7 +108,7 @@ options = {
 	            "from the specified window. If the -colormap option is not "
 	            "specified, the new window uses the same colormap as its "
 	            "parent. This option may not be changed with the configure "
-	            "widget command. ",
+	            "widget command.",
 	"command": "A function to be called whenever a widget is asking for it, "
 	           "for example when a button is pressed or a scrollbar is moved.",
 	"compound": "If you provide both image and text options, the compound "
@@ -119,16 +119,16 @@ options = {
 	            "\nWhen you provide both image and text options but don't "
 	            "specify a compound option, the image will appear and the "
 	            "text will not be displayed."
-	            "\n'bottom' 	Display the image below the text. "
-	            "\n'image' 	Display only the image, not the text. "
-	            "\n'left' 	Display the image to the left of the text. "
+	            "\n'bottom' 	Display the image below the text."
+	            "\n'image' 	Display only the image, not the text."
+	            "\n'left' 	Display the image to the left of the text."
 	            "\n'none' 	Display the image if there is one, otherwise "
-	            "display the text. This is the default value. "
-	            "\n'right' 	Display the image to the right of the text. "
-	            "\n'text' 	Display the text, not the image. "
-	            "\n'top' 	Display the image above the text. ",
+	            "display the text. This is the default value."
+	            "\n'right' 	Display the image to the right of the text."
+	            "\n'text' 	Display the text, not the image."
+	            "\n'top' 	Display the image above the text.",
 	"confine": "If true (the default), the canvas cannot be scrolled outside of "
-	           "the scrollregion (see below). ",
+	           "the scrollregion (see below).",
 	"container": "(Taken from Tk Commands)"
 	             "\nSpecifies a colormap to use for "
 	             "the window. The value may be either new, in which case a "
@@ -138,31 +138,31 @@ options = {
 	             "the new window will use the colormap from the specified "
 	             "window. If the -colormap option is not specified, the new "
 	             "window uses the same colormap as its parent. This option "
-	             "may not be changed with the configure widget command. ",
+	             "may not be changed with the configure widget command.",
 	"cursor": "The cursor that will appear when the mouse is over the widget.",
-	"default": "tk.NORMAL is the default; use tk.DISABLED if the widget is to "
+	"default": "tk.NORMAL is the default. use tk.DISABLED if the widget is to "
 	           "be initially disabled (grayed out, unresponsive to mouse "
 	           "clicks).",
 	"digits": "The way your program reads the current value shown in a scale "
-	          "widget is through a control variable; The control variable "
+	          "widget is through a control variable. The control variable "
 	          "for a scale can be an IntVar, a DoubleVar (for type float), "
 	          "or a StringVar. If it is a string variable, the digits option "
 	          "controls how many digits to use when the numeric scale value is "
-	          "converted to a string. ",
+	          "converted to a string.",
 	"direction": "Normally, the menu will appear below the menubutton. Set "
 	             "direction=tk.LEFT to display the menu to the left of the "
-	             "button; use direction=tk.RIGHT to display the menu to the "
-	             "right of the button; or use direction='above' to place the "
-	             "menu above the button. "
-	             "\nabove 	The menu will appear just above the menubutton. "
-	             "\nbelow 	The menu will appear just below the menubutton. "
+	             "button. use direction=tk.RIGHT to display the menu to the "
+	             "right of the button. or use direction='above' to place the "
+	             "menu above the button."
+	             "\nabove 	The menu will appear just above the menubutton."
+	             "\nbelow 	The menu will appear just below the menubutton."
 	             "\nflush 	The menu will appear over the menubutton, so that "
 	             "the menu's northwest corner coincides with the menubutton's "
-	             "northwest corner. "
+	             "northwest corner."
 	             "\nleft 	The menu will appear just to the left of the "
 	             "menubutton."
 	             "\nright 	The menu will appear just to the right of the "
-	             "menubutton. ",
+	             "menubutton.",
 	"disabledbackground": "The background color to be displayed when the "
 	                      "widget is in the tk.DISABLED state. Use a style "
 	                      "map for the foreground option.",
@@ -180,7 +180,7 @@ options = {
 	                  "\n For example, suppose you specify columns=('Name', "
 	                  "'Size', 'Date'). This means each call to the .insert() "
 	                  "method will require an argument values=(name, size, "
-	                  "date) to supply the values that will be displayed. "
+	                  "date) to supply the values that will be displayed."
 	                  "Let's call this sequence the logical column sequence."
 	                  "\nFurther suppose that in the constructor you specify "
 	                  "columns=(2,0). The physical column sequence, "
@@ -191,7 +191,7 @@ options = {
 	                  "index 0). The size column will not appear."
 	                  "\nYou could get the same effect by specifying column "
 	                  "identifiers instead of logical column positions: "
-	                  "columns=('Date', 'Name'). ",
+	                  "columns=('Date', 'Name').",
 	"endline": "(Taken from Tk Commands)"
 	           "\nSpecifies an integer line index representing the line of the "
 	           "underlying textual data store that should be just after the "
@@ -199,7 +199,7 @@ options = {
 	           "to reflect only a portion of a larger piece of text. Instead "
 	           "of an integer, the empty string can be provided to this "
 	           "configuration option, which will configure the widget to end "
-	           "at the very last line in the textual data store. ",
+	           "at the very last line in the textual data store.",
 	"elementborderwidth": "The width of the borders around the arrowheads and "
 	                      "slider.",
 	"exportselection": "By default, if you select text within an entry or "
@@ -208,42 +208,42 @@ options = {
 	                   "exportselection=0."
 	                   "\nNormally, the text in the entry portion of a "
 	                   "Spinbox can be cut and pasted. To prohibit this "
-	                   "behavior, set the exportselection option to True. ",
+	                   "behavior, set the exportselection option to True.",
 	"font": "Text font to be used for the widget's label. Configure this "
 	        "option using a style.",
 	"foreground": "Normal foreground (text) color. Configure this option "
 	              "using a style. For the bitmap option, this specifies the "
-	              "color displayed for 1-bits in the bitmap. ",
+	              "color displayed for 1-bits in the bitmap.",
 	"fg": "Normal foreground (text) color. Configure this option using a "
 	      "style. For the bitmap option, this specifies the color displayed "
-	      "for 1-bits in the bitmap. ",
+	      "for 1-bits in the bitmap.",
 	"format": "Use this option to control the formatting of numeric values in "
 	          "combination with the from_ and to options. For example, "
 	          "format='%10.4f' would display the value as a ten-character "
-	          "field, with four digits after the decimal. ",
+	          "field, with four digits after the decimal.",
 	"from_": "A float value that defines one end of the scale's range. For "
-	         "vertical scales, this is the top end; for horizontal scales, "
+	         "vertical scales, this is the top end. for horizontal scales, "
 	         "the left end.",
 	"from": "A float value that defines one end of the scale's range. For "
-	        "vertical scales, this is the top end; for horizontal scales, "
+	        "vertical scales, this is the top end. for horizontal scales, "
 	        "the left end.",
 	"handlepad": "Use this option to specify the distance between the handle "
 	             "and the end of the sash. For orient=tk.VERTICAL, this is the "
-	             "distance between the left end of the sash and the handle; "
+	             "distance between the left end of the sash and the handle."
 	             "for orient=tk.HORIZONTAL, it is the distance between the top "
-	             "of the sash and the handle. ",
+	             "of the sash and the handle.",
 	"handlesize": "Use this option to specify the size of the handle, which is "
-	              "always a square; ",
+	              "always a square.",
 	"height": "Height of the widget in text lines (for textual widgets) or "
-	          "pixels (for images). "
-	          "\nThe vertical dimension of the new frame. "
+	          "pixels (for images)."
+	          "\nThe vertical dimension of the new frame."
 	          "This will be ignored unless you also call .grid_propagate(0) "
-	          "on the frame; If you don't specify this option, the height is "
+	          "on the frame. If you don't specify this option, the height is "
 	          "determined by the height of the child widgets."
 	          "\nNumber of lines (not pixels!) shown in the listbox."
 	          "\nUse this option for combobox to specify a maximum number of "
-	          "rows that will appear in the drop-down menu; the default is 20. "
-	          "If there  are more values than this number, the drop-down menu "
+	          "rows that will appear in the drop-down menu. the default is 20."
+	          "If there are more values than this number, the drop-down menu "
 	          "will automatically include a vertical scrollbar.",
 	"highlightbackground": "To control the color of the focus highlight when "
 	                       "the widget does not have focus, use a style map "
@@ -258,18 +258,18 @@ options = {
 	                      "all themes.",
 	"image": "This option specifies an image or images to be displayed either "
 	         "in addition to or instead of text. See the compound option "
-	         "above for what happens when you supply both image and text. "
+	         "above for what happens when you supply both image and text."
 	         "You may specify multiple images that will appear on the widget "
-	         "depending on the state of the widget. "
+	         "depending on the state of the widget."
 	         "\nTo do this, supply as the value of this option a tuple (i0, "
 	         "s1, i1, s2, i2, ...), where: "
-	         "\ni0 is the default image to be displayed on the widget. "
+	         "\ni0 is the default image to be displayed on the widget."
 	         "\nFor each pair of values after the first, si specifies a state "
 	         "or combination of states, and i1 specifies the image to be "
-	         "displayed when the widget's state matches si. "
+	         "displayed when the widget's state matches si."
 	         "\nEach state specifier si may be a single state name, "
 	         "optionally preceded by '!', or a sequence of such names. The ! "
-	         "specifies that the widget must not be in that state. "
+	         "specifies that the widget must not be in that state."
 	         "\n For example, suppose you have three PhotoImage instances "
 	         "named im1, im2, and im3, and in your call to the Label "
 	         "constructor you include this option:"
@@ -279,47 +279,47 @@ options = {
 	         "\n          ('!disabled', 'alternate'), im3), ...)"
 	         "\nThe widget will display image im2 if it is in the selected "
 	         "state. If it is not in the selected state or the disabled state "
-	         "but it is in the alternate state, it will display image im3. "
-	         "Otherwise it will display image im1. ",
+	         "but it is in the alternate state, it will display image im3."
+	         "Otherwise it will display image im1.",
 	"inactiveselectbackground": "(Taken from Tk Commands)"
 	                            "\nSpecifies the colour to use for the "
 	                            "selection (the sel tag) when the window does "
 	                            "not have the input focus. If empty, {}, "
 	                            "then no selection is shown when the window "
-	                            "does not have the focus. ",
+	                            "does not have the focus.",
 	"increment": "When you constrain the values with the from_ and to options, "
 	             "you can use the increment option to specify how much the "
 	             "value increases or decreases when the user clicks on an "
 	             "arrowhead. For example, with options from_=0.0, to=2.0, "
 	             "and increment=0.5, the up-arrowhead will step through values "
-	             "0.0, 0.5, 1.0, 1.5, and 2.0. ",
+	             "0.0, 0.5, 1.0, 1.5, and 2.0.",
 	"indicatoron": "Normally a checkbutton/radiobutton displays as its "
-	               "indicator a box"
-	               "that shows whether the checkbutton/radiobutton is set or not. You can "
+	               "indicator a box that shows whether the "
+	               "checkbutton/radiobutton is set or not. You can"
 	               "get this behavior by setting indicatoron=1. However, "
 	               "if you set indicatoron=0, the indicator disappears, "
 	               "and the entire widget becomes a push-push button that "
 	               "looks raised when it is cleared and sunken when it is "
 	               "set. You may want to increase the borderwidth value to "
-	               "make it easier to see the state of such a control. ",
+	               "make it easier to see the state of such a control.",
 	"insertbackground": "By default, the insertion cursor (which shows the "
 	                    "point within the text where new keyboard input will "
 	                    "be inserted) is black. To get a different color of "
-	                    "insertion cursor, set insertbackground to any color;",
+	                    "insertion cursor, set insertbackground to any color.",
 	"insertborderwidth": "By default, the insertion cursor is a simple "
 	                     "rectangle. You can get the cursor with the tk.RAISED "
 	                     "relief effect by setting insertborderwidth to the "
 	                     "dimension of the 3-d border. If you do, make sure "
 	                     "that the insertwidth option is at least twice that "
-	                     "value. ",
+	                     "value.",
 	"insertofftime": "By default, the insertion cursor blinks. You can set "
 	                 "insertofftime to a value in milliseconds to specify how "
 	                 "much time the insertion cursor spends off. If you use "
 	                 "insertofftime=0, the insertion cursor"
-	                 "won't blink at all. ",
+	                 "won't blink at all.",
 	"insertontime": "Similar to insertofftime, this option specifies how much "
 	                "time the cursor spends on per blink. Default is 600 ("
-	                "milliseconds). ",
+	                "milliseconds).",
 	"insertunfocussed": "(Taken from Tk Commands)"
 	                    "\nSpecifies how to display the insertion cursor when "
 	                    "the widget does not have the focus. Must be none ("
@@ -327,38 +327,38 @@ options = {
 	                    "hollow which means to display a hollow box, or solid "
 	                    "which means to display a solid box. Note that hollow "
 	                    "and solid will appear very similar when the "
-	                    "-blockcursor option is false. ",
+	                    "-blockcursor option is false.",
 	"insertwidth": "By default, the insertion cursor is 2 pixels wide. You can "
-	               "adjust this by setting insertwidth to any dimension. ",
+	               "adjust this by setting insertwidth to any dimension.",
 	"invalidcommand": "You may set this option to a callback function that "
 	                  "will be called whenever validation fails (that is, "
-	                  "when the validatecommand returns a 0). ",
-	"jump": "This option controls what happens when a user drags the slider. "
+	                  "when the validatecommand returns a 0).",
+	"jump": "This option controls what happens when a user drags the slider."
 	        "Normally (jump=0), every small drag of the slider causes the "
 	        "command callback to be called. If you set this option to 1, "
 	        "the callback isn't called until the user releases the mouse "
-	        "button. ",
+	        "button.",
 	"justify": "How to show multiple text lines: tk.LEFT to left-justify each "
-	           "line; tk.CENTER to center them; or tk.RIGHT to right-justify."
+	           "line. tk.CENTER to center them. or tk.RIGHT to right-justify."
 	           "If the text contains newline ('\\n') characters, the text will"
 	           "occupy multiple lines on the widget. The justify option "
 	           "controls how each line is positioned horizontally. Configure "
-	           "this option using a style. ",
+	           "this option using a style.",
 	"label": "You can display a label within the scale widget by setting this "
 	         "option to the label's text. The label appears in the top left "
 	         "corner if the scale is horizontal, or the top right corner if "
 	         "vertical. The default is no label.",
 	"labelanchor": "Use this option to specify the position of the label on "
 	               "the widget's border. The default position is 'nw', "
-	               "which places the label at the left end of the top border. ",
+	               "which places the label at the left end of the top border.",
 	"labelwidget": "Instead of a text label, you can use any widget as the "
-	               "label by passing that widget as the value of this option. "
+	               "label by passing that widget as the value of this option."
 	               "If you supply both labelwidget and text options, the text "
-	               "option is ignored. "
+	               "option is ignored."
 	               "\nFor example, if you don't like the rather small and "
 	               "plain default font used for the label, you can use this "
 	               "option to display a Label widget with the font and other "
-	               "appearance of your choice. ",
+	               "appearance of your choice.",
 	"length": "The length of the scale widget. This is the x dimension if the "
 	          "scale is horizontal, or the y dimension if vertical.",
 	"listvariable": "A StringVar that is connected to the complete list of "
@@ -374,29 +374,29 @@ options = {
 	                "lines:  listCon.set('ant bee cicada')"
 	                "This call would return the string ('ant', 'bee', "
 	                "'cicada'):  listCon.get()",
-	"maximum": "The maximum value of the indicator;",
+	"maximum": "The maximum value of the indicator.",
 	"maxundo": "This option sets the maximum number of operations retained on "
 	           "the undo stack. For an overview of the undo mechanism",
 	"menu": "To associate the menubutton with a set of choices, set this "
 	        "option to the Menu object containing those choices. That menu "
 	        "object must have been created by passing the associated "
-	        "menubutton to the constructor as its first argument. "
+	        "menubutton to the constructor as its first argument."
 	        "\nTo provide a toplevel window with a top-level menubar, supply a Menu "
 	        "widget as the value of this option. Under MacOS, this menu will "
 	        "appear at the top of the screen when the window is active. Under "
-	        "Windows or Unix, it will appear at the top of the application. ",
+	        "Windows or Unix, it will appear at the top of the application.",
 	"mode": "If your program cannot accurately depict the relative progress "
 	        "that this widget is supposed to display, "
 	        "use mode='indeterminate'. In this mode, a rectangle bounces back "
 	        "and forth between the ends of the widget once you use the .start("
-	        ") method. "
+	        ") method."
 	        "\nIf your program has some measure of relative progress, "
 	        "use mode='determinate'. In this mode, your program can move the "
-	        "indicator to a specified position along the widget's track. ",
-	"offrelief": "By default, checkbutton/radiobuttons use the tk.RAISED relief style when "
-	             "the button is off (cleared); use this option to specify a "
-	             "different relief style to be displayed when the button is "
-	             "off.",
+	        "indicator to a specified position along the widget's track.",
+	"offrelief": "By default, checkbutton/radiobuttons use the tk.RAISED "
+	             "relief style when the button is off (cleared). use this "
+	             "option to specify a  different relief style to be displayed "
+	             "when the button is off.",
 	"offset": "(Taken from Tk Commands)"
 	          "\nSpecifies the offset of stipples. The offset value can be of "
 	          "the form x,y or side, where side can be n, ne, e, se, s, sw, "
@@ -409,15 +409,15 @@ options = {
 	          "canvas items you can also specify an index as argument, "
 	          "which connects the stipple origin to one of the coordinate "
 	          "points of the line/polygon. Note that stipple offsets are only "
-	          "supported on X11; they are silently ignored on other "
-	          "platforms. ",
+	          "supported on X11. they are silently ignored on other "
+	          "platforms.",
 	"offvalue": "Normally, a checkbutton's associated control variable will be "
 	            "set to 0 when it is cleared (off). You can supply an alternate "
 	            "value for the off state by setting offvalue to that value."
 	            "\nBy default, when a checkbutton is in the off (unchecked) "
 	            "state, the value of the associated variable is 0. You can "
 	            "use the offvalue option to specify a different value for the "
-	            "off state. ",
+	            "off state.",
 	"onvalue": "Normally, a checkbutton's associated control variable will be "
 	           "set to 1 when it is set (on). You can supply an alternate "
 	           "value for the on state by setting onvalue to that value."
@@ -425,28 +425,30 @@ options = {
 	           "\nBy default, when a checkbutton is in the on (checked) "
 	           "state, the value of the associated variable is 1. You can use "
 	           "the onvalue option to specify a different value for the on "
-	           "state. ",
+	           "state.",
 	"opaqueresize": "This option controls how a resizing operation works. For "
 	                "the default value, opaqueresize=True, the resizing is "
 	                "done continuously as the sash is dragged. If this option "
 	                "is set to False, the sash (and adjacent child widgets) "
 	                "stays put until the user releases the mouse button, "
-	                "and then it jumps to the new position. ",
-	"orient": "To stack child widgets side by side, use orient=tk.HORIZONTAL. "
-	          "To stack them top to bottom, use orient=tk.VERTICAL. \nSet "
+	                "and then it jumps to the new position.",
+	"orient": "To stack child widgets side by side, use orient=tk.HORIZONTAL."
+	          "To stack them top to bottom, use orient=tk.VERTICAL."
+	          "\nSet "
 	          "orient=tk.HORIZONTAL if you want the scale to run along the x "
 	          "dimension, or orient=tk.VERTICAL to run parallel to the "
-	          "y-axis. Default is vertical. \nSet orient=tk.HORIZONTAL for a "
+	          "y-axis. Default is vertical."
+	          "\nSet orient=tk.HORIZONTAL for a "
 	          "horizontal scrollbar, orient=tk.VERTICAL for a vertical one ("
-	          "the default orientation). ",
+	          "the default orientation).",
 	"overrelief": "The relief style to be used while the mouse is over the "
-	              "widget; default relief is tk.RAISED.Use a style map to "
-	              "control the relief option. ",
+	              "widget. default relief is tk.RAISED.Use a style map to "
+	              "control the relief option.",
 	"padding": "To create an empty area inside the frame and outside of the "
-	           "contained widgets, set this option to the desired dimension. "
+	           "contained widgets, set this option to the desired dimension."
 	           "For example, padding='0.5i' would clear a half-inch-wide area "
 	           "inside the frame and around the outside of the widgets inside "
-	           "it. "
+	           "it."
 	           "\nUse this argument to place extra space around the contents "
 	           "inside the widget. You may provide either a single dimension "
 	           "or a sequence of up to four dimensions, interpreted according "
@@ -461,29 +463,29 @@ options = {
 	"phase": "Read-only option. The widget periodically increments the value "
 	         "of this option whenever the value is greater than 0 and, "
 	         "in determinate mode, less than maximum. This option may be used "
-	         "by the current theme to provide additional animation effects. ",
+	         "by the current theme to provide additional animation effects.",
 	"postcommand": "You can set this option to a procedure, and that procedure "
-	               "will be called every time someone brings up this menu. "
+	               "will be called every time someone brings up this menu."
 	               "\nOn a combobox you may use this option to supply a "
 	               "callback function that will be invoked when the user "
 	               "clicks on the down-arrow. This callback may change the "
-	               "values option; if so, the changes will appear in the "
-	               "drop-down menu. ",
+	               "values option. if so, the changes will appear in the "
+	               "drop-down menu.",
 	"proxybackground": "(Taken from Tk Commands)"
 	                   "\nBackground color to use "
 	                   "when drawing the proxy. If an empty string, the value "
-	                   "of the -background option will be used. ",
+	                   "of the -background option will be used.",
 	"proxyborderwidth": "(Taken from Tk Commands)"
 	                    "\nSpecifies the borderwidth "
 	                    "of the proxy. May be any value accepted by "
-	                    "Tk_GetPixels. ",
+	                    "Tk_GetPixels.",
 	"proxyrelief": "(Taken from Tk Commands)"
 	               "\nRelief to use when drawing the "
 	               "proxy. May be any of the standard Tk relief values. If an "
 	               "empty string, the value of the -sashrelief option will be "
-	               "used. ",
+	               "used.",
 	"readonlybackground": "The background color to be displayed when the "
-	                      "widget's state option is 'readonly'. ",
+	                      "widget's state option is 'readonly'.",
 	"relief": "Specifies the relief type for the widget. E.g. with the "
 	          "value, relief=tk.FLAT, the widget does not stand out from "
 	          "its background. You may set this option to any of the other "
@@ -493,8 +495,8 @@ options = {
 	"repeatdelay": "For (push)button see 'repeatintervall' below"
 	               "\nFor a slider widget this option controls how long "
 	               "button 1 has to be held down in the trough before the "
-	               "slider starts moving in that direction repeatedly. "
-	               "The units are milliseconds. ",
+	               "slider starts moving in that direction repeatedly."
+	               "The units are milliseconds.",
 	"repeatinterval": "Normally, a button fires only once when the user "
 	                  "releases the mouse button. If you want the button to "
 	                  "fire at regular intervals as long as the mouse button "
@@ -514,24 +516,24 @@ options = {
 	              "if from_=-1.0 and to=1.0, and you set resolution=0.5, "
 	              "the scale will have 5 possible values: -1.0, -0.5, 0.0, "
 	              "+0.5, and +1.0. All smaller movements will be ignored. Use "
-	              "resolution=-1 to disable any rounding of values. ",
+	              "resolution=-1 to disable any rounding of values.",
 	"sashcursor": "(Taken from Tk Commands)"
-	              "Mouse cursor to use when over a sash. If null, "
+	              "\nMouse cursor to use when over a sash. If null, "
 	              "sb_h_double_arrow will be used for horizontal panedwindows, "
 	              "and sb_v_double_arrow will be used for vertical "
-	              "panedwindows. \n",
+	              "panedwindows.",
 	"sashpad": "Use this option to allocate extra space on either side of each "
 	           "sash.",
 	"sashrelief": "This option specifies the relief style used to render the "
-	              "sashes; ",
-	"sashwidth": "Specifies the width of the sash;",
+	              "sashes.",
+	"sashwidth": "Specifies the width of the sash.",
 
-	"selectcolor": "The color of the checkbutton/radiobutton when it is set. Default is "
-	               "selectcolor='red'.",
-	"selectbackground": "The background color to use displaying selected items. ",
+	"selectcolor": "The color of the checkbutton/radiobutton when it is set."
+	               "Default is selectcolor='red'.",
+	"selectbackground": "The background color to use displaying selected items.",
 	"selectborderwidth": "The width of the border to use around selected "
-	                     "items. ",
-	"selectforeground": "The foreground color to use displaying selected items. ",
+	                     "items.",
+	"selectforeground": "The foreground color to use displaying selected items.",
 	"selectimage": "TIf you set this option to an image, that image will appear "
 	               "in the checkbutton/radiobutton when it is set.",
 	"selectmode": "Determines how many items can be selected, and how mouse "
@@ -539,16 +541,16 @@ options = {
 	              "\ntk.BROWSE: Normally, you can only select one line out of a "
 	              "listbox. If you click on an item and then drag to a "
 	              "different line, the selection will follow the mouse. This "
-	              "is the default. "
+	              "is the default."
 	              "\ntk.SINGLE: You can only select one line, and you can't drag "
 	              "the mouse—wherever you click button 1, that line is "
-	              "selected. "
-	              "\ntk.MULTIPLE: You can select any number of lines at once. "
+	              "selected."
+	              "\ntk.MULTIPLE: You can select any number of lines at once."
 	              "Clicking on any line toggles whether or not it is "
-	              "selected. "
+	              "selected."
 	              "\ntk.EXTENDED: You can select any adjacent group of lines at "
 	              "once by clicking on the first line and dragging to the last "
-	              "line. "
+	              "line."
 	              "\nThis option on a treeview controls what the user is "
 	              "allowed to select with the mouse. Values can be: "
 	              "\nselectmode='browse' 	The user may select only one item "
@@ -571,42 +573,42 @@ options = {
 	           "displayed to the user in grid units and the window size will "
 	           "be constrained to integral numbers of grid units. See the "
 	           "section GRIDDED GEOMETRY MANAGEMENT in the wm manual entry "
-	           "for more details. ",
-	"show": "Normally, the characters that the user types appear in the entry. "
+	           "for more details.",
+	"show": "Normally, the characters that the user types appear in the entry."
 	        "To make a “password” entry that echoes each character as an "
-	        "asterisk, set show='*'. "
+	        "asterisk, set show='*'."
 	        "\nTo protect fields such as passwords from being visible on the "
 	        "screen, set this option to a string, whose first character will "
-	        "be substituted for each of the actual characters in the field. "
+	        "be substituted for each of the actual characters in the field."
 	        "For example, if the field contains “ sesame” but you have "
-	        "specified show='*', the field will appear as “******”. "
+	        "specified show='*', the field will appear as “******”."
 	        "\nTo suppress the labels on a treeview at the top of each "
 	        "column, specify show='tree'. The default is to show the column "
-	        "labels. ",
+	        "labels.",
 	"showhandle": "Use showhandle=True to display the handles. For the default "
 	              "value, False, the user can still use the mouse to move the "
-	              "sashes. The handle is simply a visual cue. ",
+	              "sashes. The handle is simply a visual cue.",
 	"showvalue": "Normally, the current value of the scale is displayed in "
 	             "text form by the slider (above it for horizontal scales, "
 	             "to the left for vertical scales). Set this option to 0 to "
-	             "suppress that label. ",
+	             "suppress that label.",
 	"scrollregion": "A tuple (w, n, e, s) that defines over how large an area "
 	                "the canvas can be scrolled, where w is the left side, "
-	                "n the top, e the right side, and s the bottom. ",
+	                "n the top, e the right side, and s the bottom.",
 	"sliderlength": "Normally the slider is 30 pixels along the length of the "
 	                "scale. You can change that length by setting the "
-	                "sliderlength option to your desired length;",
+	                "sliderlength option to your desired length.",
 	"sliderrelief": "By default, the slider is displayed with a tk.RAISED "
 	                "relief style.",
 	"spacing1": "This option specifies how much extra vertical space is put "
 	            "above each line of text. If a line wraps, this space is added "
-	            "only before the first line it occupies on the display. ",
+	            "only before the first line it occupies on the display.",
 	"spacing2": "This option specifies how much extra vertical space to add "
 	            "between displayed lines of text when a logical line wraps.",
 	"spacing3": "This option specifies how much extra vertical space is added "
 	            "below each line of text. If a line wraps, this space is added "
 	            "only after the last line it occupies on the display. Default "
-	            "is 0. ",
+	            "is 0.",
 	"startline": "(Taken from Tk Commands)"
 	             "\nSpecifies an integer line index representing the first "
 	             "line of the underlying textual data store that should be "
@@ -614,15 +616,15 @@ options = {
 	             "reflect only a portion of a larger piece of text. Instead "
 	             "of an integer, the empty string can be provided to this "
 	             "configuration option, which will configure the widget to "
-	             "start at the very first line in the textual data store. ",
-	"state": "Different widgets have different default values for this option. "
+	             "start at the very first line in the textual data store.",
+	"state": "Different widgets have different default values for this option."
 	         "Possible values are: tk.ACTIVE, tk.NORMAL tk.DISABLED."
 	         "Use this option to disable the Entry "
 	         "widget so that the user can't type anything into it. Use "
 	         "state=tk.DISABLED to disable the widget, state=tk.NORMAL to "
 	         "allow user input again. Your program can also find out whether "
 	         "the cursor is currently over the widget by interrogating this "
-	         "option; it will have the value tk.ACTIVE when the mouse is over "
+	         "option. it will have the value tk.ACTIVE when the mouse is over "
 	         "it. You can also set this option to 'disabled', which is like "
 	         "the tk.DISABLED state, but the contents of the widget can still "
 	         "be selected or copied. In ttk, there is no option with this "
@@ -641,19 +643,19 @@ options = {
 	            "single space will be inserted as a fallback. If the tab "
 	            "style is wordprocessor then any tab character being laid out "
 	            "will use (and be defined by) the first tab stop to the right "
-	            "of the preceding characters already laid out on that line. "
+	            "of the preceding characters already laid out on that line."
 	            "The value of the -tabstyle option may be overridden by "
-	            "-tabstyle options in tags. ",
+	            "-tabstyle options in tags.",
 	"tearoff": "Normally, a menu can be torn off: the first position (position "
 	           "0) in the list of choices is occupied by the tear-off element, "
-	           "and the additional choices are added starting at position 1. "
+	           "and the additional choices are added starting at position 1."
 	           "If you set tearoff=0, the menu will not have a tear-off "
-	           "feature, and choices will be added starting at position 0. ",
+	           "feature, and choices will be added starting at position 0.",
 	"tearoffcommand": "If you would like your program to be notified when the "
 	                  "user clicks on the tear-off entry in a menu, set this "
 	                  "option to your procedure. It will be called with two "
 	                  "arguments: the window ID of the parent window, and the "
-	                  "window ID of the new tear-off menu's root window. ",
+	                  "window ID of the new tear-off menu's root window.",
 	"takefocus": "By default, a ttk.widget will be included in focus "
 	             "traversal. To remove the widget from focus traversal, "
 	             "use takefocus=False or takefocus=0."
@@ -662,20 +664,20 @@ options = {
 	             "button. You can set the takefocus option to zero to prevent "
 	             "focus from visiting the widget. If you set this option to "
 	             "1, focus will always visit this widget. Set it to '' to get "
-	             "the default behavior. ",
+	             "the default behavior.",
 	"text": "The text to appear on the widget, as a string. Use newlines ("
-	        "'\\n') to display multiple lines of text. ",
+	        "'\\n') to display multiple lines of text.",
 	"textvariable": "If you need to change the label on a widget during "
 	                "execution, create a StringVar to manage the "
 	                "current value, and set this option to that control "
 	                "variable. Whenever the control variable's value changes, "
 	                "the widgets's annotation will automatically change "
-	                "as well. "
+	                "as well."
 	                "For the entry widget in order to be able to retrieve the "
 	                "current text from your entry widget, you must set this "
-	                "option to an instance of the StringVar class; You "
+	                "option to an instance of the StringVar class. You "
 	                "can retrieve the text using v.get(), or set it using "
-	                "v.set(), where v is the associated control variable. ",
+	                "v.set(), where v is the associated control variable.",
 	"tickinterval": "Normally, no “ticks” are displayed along the scale. To "
 	                "display periodic scale values, set this option to a "
 	                "number, and ticks will be displayed on multiples of that "
@@ -684,23 +686,23 @@ options = {
 	                "scale at values 0.0, 0.25, 0.50, 0.75, and 1.00. These "
 	                "labels appear below the scale if horizontal, to its left "
 	                "if vertical. Default is 0, which suppresses display of "
-	                "ticks. ",
+	                "ticks.",
 	"title": "Normally, the title of a tear-off menu window will be the same "
-	         "as the text of the menubutton or cascade that lead to this menu. "
+	         "as the text of the menubutton or cascade that lead to this menu."
 	         "If you want to change the title of that window, set the title "
 	         "option to that string.",
-	"to": "A float value that defines one end of the scale's range; the other "
+	"to": "A float value that defines one end of the scale's range. the other "
 	      "end is defined by the from_ option, discussed above. The to value "
 	      "can be either greater than or less than the from_ value. For "
-	      "vertical scales, the to value defines the bottom of the scale; for "
-	      "horizontal scales, the right end. The default value is 100.0. ",
+	      "vertical scales, the to value defines the bottom of the scale. for "
+	      "horizontal scales, the right end. The default value is 100.0.",
 	"tristateimage": "Specifies an image to display (in place of the image "
 	                 "option) when the checkbutton is in tri-state mode. This "
 	                 "option is ignored unless the image option has been "
-	                 "specified. ",
+	                 "specified.",
 	"tristatevalue": "Specifies the value that causes the checkbutton to "
 	                 "display the multi-value selection, also known as the "
-	                 "tri-state mode. Defaults to ''. ",
+	                 "tri-state mode. Defaults to ''.",
 	"troughcolor": "The color of the trough.",
 	"type": "(Taken from Tk Commands)"
 	        "\nThis option can be one of menubar, tearoff, or normal, and is "
@@ -708,14 +710,14 @@ options = {
 	        "configuration database will change if this option is changed, "
 	        "this does not affect the menu widget's behavior. This is used by "
 	        "the cloning mechanism and is not normally set outside of the Tk "
-	        "library. ",
+	        "library.",
 	"underline": "Default is -1, meaning that no character of the text on the "
 	             "widget will be underlined. Set this option to the "
 	             "index of a character in the text (counting from zero) to "
 	             "underline that character. For example, underline=1"
 	             "would underline the second character of the button's text.",
 	"undo": "Set this option to True to enable the undo mechanism, or False to "
-	        "disable it. ",
+	        "disable it.",
 	"validate": "You can use this option to set up the widget so that its "
 	            "contents are checked by a validation function at certain "
 	            "times.",
@@ -725,30 +727,30 @@ options = {
 	         "variable is an IntVar, give each radiobutton in the group a "
 	         "different integer value option. If the control variable is a "
 	         "StringVar, give each radiobutton a different string value "
-	         "option. ",
+	         "option.",
 	"values": "There are two ways to specify the possible values of the spinbox"
 	          "widget. One way is to provide a tuple of strings as the value "
 	          "of the values option. For example, values=('red', 'blue', "
 	          "'green') would allow only those three strings as values. To "
 	          "configure the widget to accept a range of numeric values, "
-	          "see the from_ option above. "
+	          "see the from_ option above."
 	          "\nThe choices in a combobox that will appear in the drop-down "
-	          "menu, as a sequence of strings. ",
+	          "menu, as a sequence of strings.",
 	"variable": "The control variable that tracks the current state of the "
-	            "widget; Possible types are StringVar, IntVar, BooleanVar or "
+	            "widget. Possible types are StringVar, IntVar, BooleanVar or "
 	            "DoubleVar."
 	            "E.g. for a checkbutton this variable is an IntVar, "
 	            "and 0 means cleared and 1 means set, but see the offvalue "
-	            "and onvalue options above. "
+	            "and onvalue options above."
 	            "\nThe control variable that a "
-	            "radiobutton shares with the other radiobuttons in the group; "
-	            "can be either an IntVar or a StringVar. "
+	            "radiobutton shares with the other radiobuttons in the group."
+	            "can be either an IntVar or a StringVar."
 	            "\nControl variables "
 	            "for a scale may be from class IntVar, DoubleVar (for type "
 	            "float), or StringVar. In the latter case, the numerical "
 	            "value will"
 	            "be converted to a string. See the the digits option, above, "
-	            "for more information on this conversion. ",
+	            "for more information on this conversion.",
 	"visual": "(taken from Tk Commands)\n"
 	          "Specifies visual information for the new window in any of the "
 	          "forms accepted by Tk_GetVisual. If this option is not "
@@ -765,32 +767,32 @@ options = {
 	         "accommodate the current text and/or image. The option may also "
 	         "be configured in a style."
 	         "\nThe horizontal dimension of the new frame will be ignored "
-	         "unless you also call .grid_propagate(0) on the frame; "
+	         "unless you also call .grid_propagate(0) on the frame."
 	         "\nThe  width of the trough part of the scale widget. This is the x "
 	         "dimension for vertical scales and the y dimension if the scale has "
-	         "orient=tk.HORIZONTAL. "
+	         "orient=tk.HORIZONTAL."
 	         "\nUse this option to specify the number "
 	         "of characters allowed in the entry part of the spinbox widget. The "
-	         "default value is 20. "
-	         "\nUse this option to specify a fixed width or a minimum width. "
-	         "The value is specified in characters; a positive value sets a "
+	         "default value is 20."
+	         "\nUse this option to specify a fixed width or a minimum width."
+	         "The value is specified in characters. a positive value sets a "
 	         "fixed width of that many average characters, while a negative "
 	         "width sets a minimum width."
 	         "\nFor example, if an average character in the selected font is "
 	         "10 pixels wide, option width=8 will make the text label exactly "
-	         "80 pixels wide; option width=-8 will use 80 pixels or the "
+	         "80 pixels wide. option width=-8 will use 80 pixels or the "
 	         "length of the text, whichever is larger."
 	         "\nYou may also specify a width value in an associated style. If "
 	         "values are specified both in the widget constructor call and in "
-	         "the style, the former takes priority. ",
-	"wrap": "This option controls the display of lines that are too wide. "
+	         "the style, the former takes priority.",
+	"wrap": "This option controls the display of lines that are too wide."
 	        "\nWith the default behavior, wrap=tk.CHAR, any line that gets too "
-	        "long will be broken at any character. "
+	        "long will be broken at any character."
 	        "\nSet wrap=tk.WORD and it will break the line after the last word "
 	        "that will fit."
 	        "\n If you want to be able to create lines that are too long to "
 	        "fit in the window, set wrap=tk.NONE and provide a horizontal "
-	        "scrollbar. ",
+	        "scrollbar.",
 	"wraplength": "If this value is set to a positive number, the text lines "
 	              "will be wrapped to fit within this length. If you use a "
 	              "style with this option set to some dimensions, the text "
@@ -798,7 +800,7 @@ options = {
 	"xscrollcommand": "If the widget is scrollable, set this option to the .set("
 	                  ") method of the horizontal scrollbar. If you expect "
 	                  "that users will often enter more text than the "
-	                  "onscreen size of the widget, you can link your  "
+	                  "onscreen size of the widget, you can link your "
 	                  "widget to a scrollbar.",
 	"xscrollincrement": "Normally, canvases can be scrolled horizontally to "
 	                    "any position. You can get this behavior by setting "
@@ -809,7 +811,7 @@ options = {
 	                    "scrolling units, such as when the user clicks on the "
 	                    "arrows at the ends of a scrollbar.",
 	"yscrollincrement": "Works like incrementalist, but governs vertical "
-	                    "movement. ",
+	                    "movement.",
 	"yscrollcommand": "If the widget is scrollable, this option should be the "
 	                  ".set() method of the vertical scrollbar."
 }
