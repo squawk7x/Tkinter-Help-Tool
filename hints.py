@@ -1,5 +1,4 @@
 options = {
-
 	"activebackground": "Background color when the widget is under the cursor. "
 	                    "Use a style map to control the background option.",
 	"activeforeground": "Foreground color when the widget is under the cursor. "
@@ -381,10 +380,10 @@ options = {
 	           "\na b c d         a     b     c     d",
 	"padx": "Additional padding left and right of the text.",
 	"pady": "Additional padding above and below the text.",
-	"phase":"Read-only option. The widget periodically increments the value "
-	        "of this option whenever the value is greater than 0 and, "
-	        "in determinate mode, less than maximum. This option may be used "
-	        "by the current theme to provide additional animation effects. ",
+	"phase": "Read-only option. The widget periodically increments the value "
+	         "of this option whenever the value is greater than 0 and, "
+	         "in determinate mode, less than maximum. This option may be used "
+	         "by the current theme to provide additional animation effects. ",
 	"postcommand": "You can set this option to a procedure, and that procedure "
 	               "will be called every time someone brings up this menu. "
 	               "\nOn a combobox you may use this option to supply a "
@@ -598,7 +597,8 @@ options = {
 	            "can be either an IntVar or a StringVar. "
 	            "\nControl variables "
 	            "for a scale may be from class IntVar, DoubleVar (for type "
-	            "float), or StringVar. In the latter case, the numerical value will "
+	            "float), or StringVar. In the latter case, the numerical "
+	            "value will"
 	            "be converted to a string. See the the digits option, above, "
 	            "for more information on this conversion. ",
 	"width": "If the label is text, this option specifies the absolute width "
@@ -646,7 +646,6 @@ options = {
 	                  "that users will often enter more text than the "
 	                  "onscreen size of the widget, you can link your  "
 	                  "widget to a scrollbar.",
-
 	"xscrollincrement": "Normally, canvases can be scrolled horizontally to "
 	                    "any position. You can get this behavior by setting "
 	                    "xscrollincrement to zero. If you set this option to "
@@ -657,7 +656,6 @@ options = {
 	                    "arrows at the ends of a scrollbar.",
 	"yscrollincrement": "Works like incrementalist, but governs vertical "
 	                    "movement. ",
-
 	"yscrollcommand": "If the widget is scrollable, this option should be the "
 	                  ".set() method of the vertical scrollbar."
 }
