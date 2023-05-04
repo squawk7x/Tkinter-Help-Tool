@@ -3,6 +3,18 @@ options = {
 	                    "Use a style map to control the background option.",
 	"activeforeground": "Foreground color when the widget is under the cursor. "
 	                    "Use a style map to control the foreground option.",
+	"activeborderwidth": "(Taken from Tk Commands)\n"
+	                     "Specifies a non-negative value indicating the width "
+	                     "of the 3-D border drawn around active elements. See "
+	                     "above for definition of active elements. The value "
+	                     "may have any of the forms acceptable to "
+	                     "Tk_GetPixels. This option is typically only "
+	                     "available in widgets displaying more than one "
+	                     "element at a time (e.g. menus but not buttons). ",
+	"activerelief": "(Taken from Tk Commands)"
+	                "\nSpecifies the relief to use when displaying the element "
+	                "that is active, if any. Elements other than the active "
+	                "element are always displayed with a raised relief. ",
 	"activestyle": "This option specifies the appearance of the active line. "
 	               "It may have any of these values:"
 	               "'underline'  The active line is underlined. This is the "
@@ -35,9 +47,19 @@ options = {
 	"bg": "Normal background color. For the bitmap option, this "
 	      "specifies the color displayed for 0-bits in the bitmap. "
 	      "Configure the background option using a style.",
+	"bigincrement": "(Taken from Tk Commands)"
+	                "\nSome interactions with the scale cause its value to "
+	                "change by “large” increments; this option specifies the "
+	                "size of the large increments. If specified as 0, "
+	                "the large increments default to 1/10 the range of the "
+	                "scale. ",
 	"bitmap": "Name of one of the standard bitmaps to display on the widget ("
 	          "instead of text). To display a monochrome image on a button, "
 	          "set this option to a bitmap.",
+	"blockcursor": "Specifies a boolean that says whether the blinking "
+	               "insertion cursor should be drawn as a character-sized "
+	               "rectangular block. If false (the default) a thin vertical "
+	               "line is used for the insertion cursor. ",
 	"borderwidth": "The size of the border around the widget. Configure the "
 	               "borderwidth option using a style. ",
 	"bd": "The size of the border around the widget. Default is two "
@@ -45,7 +67,8 @@ options = {
 	"buttonbackground": "The background color displayed on the arrowheads. ",
 	"buttoncursor": "The cursor to be displayed when the mouse is over the "
 	                "arrowheads;",
-	"buttondownrelief": "The relief style for the downward-pointing arrowhead; ",
+	"buttondownrelief": "The relief to be used for the upper spin button. ",
+	"buttonuprelief": "The relief to be used for the lower spin button. ",
 	"buttonup": "The relief style for the upward-pointing arrowhead;",
 	"class": "The widget class name.\n"
 	         "This may be specified when the widget is created, but cannot "
@@ -76,8 +99,16 @@ options = {
 	           "three columns would appear in the widget: first the icon "
 	           "column, then two more columns whose internal identifiers are "
 	           "'Name' and 'Size'. ",
-	"confine": "If true (the default), the canvas cannot be scrolled outside of "
-	           "the scrollregion (see below). ",
+	"colormap": "(Taken from Tk Commands)\n"
+	            "Specifies a colormap to use for the window. The value may be "
+	            "either new, in which case a new colormap is created for the "
+	            "window and its children, or the name of another window (which "
+	            "must be on the same screen and have the same visual as "
+	            "pathName), in which case the new window will use the colormap "
+	            "from the specified window. If the -colormap option is not "
+	            "specified, the new window uses the same colormap as its "
+	            "parent. This option may not be changed with the configure "
+	            "widget command. ",
 	"command": "A function to be called whenever a widget is asking for it, "
 	           "for example when a button is pressed or a scrollbar is moved.",
 	"compound": "If you provide both image and text options, the compound "
@@ -96,6 +127,18 @@ options = {
 	            "\n'right' 	Display the image to the right of the text. "
 	            "\n'text' 	Display the text, not the image. "
 	            "\n'top' 	Display the image above the text. ",
+	"confine": "If true (the default), the canvas cannot be scrolled outside of "
+	           "the scrollregion (see below). ",
+	"container": "(Taken from Tk Commands)"
+	             "\nSpecifies a colormap to use for "
+	             "the window. The value may be either new, in which case a "
+	             "new colormap is created for the window and its children, "
+	             "or the name of another window (which must be on the same "
+	             "screen and have the same visual as pathName), in which case "
+	             "the new window will use the colormap from the specified "
+	             "window. If the -colormap option is not specified, the new "
+	             "window uses the same colormap as its parent. This option "
+	             "may not be changed with the configure widget command. ",
 	"cursor": "The cursor that will appear when the mouse is over the widget.",
 	"default": "tk.NORMAL is the default; use tk.DISABLED if the widget is to "
 	           "be initially disabled (grayed out, unresponsive to mouse "
@@ -149,6 +192,14 @@ options = {
 	                  "\nYou could get the same effect by specifying column "
 	                  "identifiers instead of logical column positions: "
 	                  "columns=('Date', 'Name'). ",
+	"endline": "(Taken from Tk Commands)"
+	           "\nSpecifies an integer line index representing the line of the "
+	           "underlying textual data store that should be just after the "
+	           "last line contained in the widget. This allows a text widget "
+	           "to reflect only a portion of a larger piece of text. Instead "
+	           "of an integer, the empty string can be provided to this "
+	           "configuration option, which will configure the widget to end "
+	           "at the very last line in the textual data store. ",
 	"elementborderwidth": "The width of the borders around the arrowheads and "
 	                      "slider.",
 	"exportselection": "By default, if you select text within an entry or "
@@ -230,6 +281,12 @@ options = {
 	         "state. If it is not in the selected state or the disabled state "
 	         "but it is in the alternate state, it will display image im3. "
 	         "Otherwise it will display image im1. ",
+	"inactiveselectbackground": "(Taken from Tk Commands)"
+	                            "\nSpecifies the colour to use for the "
+	                            "selection (the sel tag) when the window does "
+	                            "not have the input focus. If empty, {}, "
+	                            "then no selection is shown when the window "
+	                            "does not have the focus. ",
 	"increment": "When you constrain the values with the from_ and to options, "
 	             "you can use the increment option to specify how much the "
 	             "value increases or decreases when the user clicks on an "
@@ -245,7 +302,6 @@ options = {
 	               "looks raised when it is cleared and sunken when it is "
 	               "set. You may want to increase the borderwidth value to "
 	               "make it easier to see the state of such a control. ",
-
 	"insertbackground": "By default, the insertion cursor (which shows the "
 	                    "point within the text where new keyboard input will "
 	                    "be inserted) is black. To get a different color of "
@@ -264,6 +320,14 @@ options = {
 	"insertontime": "Similar to insertofftime, this option specifies how much "
 	                "time the cursor spends on per blink. Default is 600 ("
 	                "milliseconds). ",
+	"insertunfocussed": "(Taken from Tk Commands)"
+	                    "\nSpecifies how to display the insertion cursor when "
+	                    "the widget does not have the focus. Must be none ("
+	                    "the default) which means to not display the cursor, "
+	                    "hollow which means to display a hollow box, or solid "
+	                    "which means to display a solid box. Note that hollow "
+	                    "and solid will appear very similar when the "
+	                    "-blockcursor option is false. ",
 	"insertwidth": "By default, the insertion cursor is 2 pixels wide. You can "
 	               "adjust this by setting insertwidth to any dimension. ",
 	"invalidcommand": "You may set this option to a callback function that "
@@ -333,6 +397,20 @@ options = {
 	             "the button is off (cleared); use this option to specify a "
 	             "different relief style to be displayed when the button is "
 	             "off.",
+	"offset": "(Taken from Tk Commands)"
+	          "\nSpecifies the offset of stipples. The offset value can be of "
+	          "the form x,y or side, where side can be n, ne, e, se, s, sw, "
+	          "w, nw, or center. In the first case the origin is the origin "
+	          "of the toplevel of the current window. For the canvas itself "
+	          "and canvas objects the origin is the canvas origin, "
+	          "but putting # in front of the coordinate pair indicates using "
+	          "the toplevel origin instead. For canvas objects, the -offset "
+	          "option is used for stippling as well. For the line and polygon "
+	          "canvas items you can also specify an index as argument, "
+	          "which connects the stipple origin to one of the coordinate "
+	          "points of the line/polygon. Note that stipple offsets are only "
+	          "supported on X11; they are silently ignored on other "
+	          "platforms. ",
 	"offvalue": "Normally, a checkbutton's associated control variable will be "
 	            "set to 0 when it is cleared (off). You can supply an alternate "
 	            "value for the off state by setting offvalue to that value."
@@ -391,6 +469,19 @@ options = {
 	               "clicks on the down-arrow. This callback may change the "
 	               "values option; if so, the changes will appear in the "
 	               "drop-down menu. ",
+	"proxybackground": "(Taken from Tk Commands)"
+	                   "\nBackground color to use "
+	                   "when drawing the proxy. If an empty string, the value "
+	                   "of the -background option will be used. ",
+	"proxyborderwidth": "(Taken from Tk Commands)"
+	                    "\nSpecifies the borderwidth "
+	                    "of the proxy. May be any value accepted by "
+	                    "Tk_GetPixels. ",
+	"proxyrelief": "(Taken from Tk Commands)"
+	               "\nRelief to use when drawing the "
+	               "proxy. May be any of the standard Tk relief values. If an "
+	               "empty string, the value of the -sashrelief option will be "
+	               "used. ",
 	"readonlybackground": "The background color to be displayed when the "
 	                      "widget's state option is 'readonly'. ",
 	"relief": "Specifies the relief type for the widget. E.g. with the "
@@ -424,6 +515,11 @@ options = {
 	              "the scale will have 5 possible values: -1.0, -0.5, 0.0, "
 	              "+0.5, and +1.0. All smaller movements will be ignored. Use "
 	              "resolution=-1 to disable any rounding of values. ",
+	"sashcursor": "(Taken from Tk Commands)"
+	              "Mouse cursor to use when over a sash. If null, "
+	              "sb_h_double_arrow will be used for horizontal panedwindows, "
+	              "and sb_v_double_arrow will be used for vertical "
+	              "panedwindows. \n",
 	"sashpad": "Use this option to allocate extra space on either side of each "
 	           "sash.",
 	"sashrelief": "This option specifies the relief style used to render the "
@@ -461,6 +557,21 @@ options = {
 	              "items at once."
 	              "\nselectmode='none' 	The user cannot select items with the "
 	              "mouse.",
+	"setgrid": "(Taken from Tk Commands)"
+	           "\nSpecifies a boolean value that determines whether this widget "
+	           "controls the resizing grid for its top-level window. This "
+	           "option is typically used in text widgets, where the "
+	           "information in the widget has a natural size (the size of a "
+	           "character) and it makes sense for the window's dimensions to "
+	           "be integral numbers of these units. These natural window "
+	           "sizes form a grid. If the -setgrid option is set to true then "
+	           "the widget will communicate with the window manager so that "
+	           "when the user interactively resizes the top-level window that "
+	           "contains the widget, the dimensions of the window will be "
+	           "displayed to the user in grid units and the window size will "
+	           "be constrained to integral numbers of grid units. See the "
+	           "section GRIDDED GEOMETRY MANAGEMENT in the wm manual entry "
+	           "for more details. ",
 	"show": "Normally, the characters that the user types appear in the entry. "
 	        "To make a “password” entry that echoes each character as an "
 	        "asterisk, set show='*'. "
@@ -496,6 +607,14 @@ options = {
 	            "below each line of text. If a line wraps, this space is added "
 	            "only after the last line it occupies on the display. Default "
 	            "is 0. ",
+	"startline": "(Taken from Tk Commands)"
+	             "\nSpecifies an integer line index representing the first "
+	             "line of the underlying textual data store that should be "
+	             "contained in the widget. This allows a text widget to "
+	             "reflect only a portion of a larger piece of text. Instead "
+	             "of an integer, the empty string can be provided to this "
+	             "configuration option, which will configure the widget to "
+	             "start at the very first line in the textual data store. ",
 	"state": "Different widgets have different default values for this option. "
 	         "Possible values are: tk.ACTIVE, tk.NORMAL tk.DISABLED."
 	         "Use this option to disable the Entry "
@@ -510,6 +629,21 @@ options = {
 	         "name. The state mechanism has been generalized.",
 	"style": "The style to be used in rendering this widget.",
 	"tabs": "This option controls how tab characters position text.",
+	"tabstyle": "(Taken from Tk Commands)"
+	            "\nSpecifies how to interpret the relationship between tab "
+	            "stops on a line and tabs in the text of that line. The value "
+	            "must be tabular (the default) or wordprocessor. Note that "
+	            "tabs are interpreted as they are encountered in the text. If "
+	            "the tab style is tabular then the n'th tab character in the "
+	            "line's text will be associated with the n'th tab stop "
+	            "defined for that line. If the tab character's x coordinate "
+	            "falls to the right of the n'th tab stop, then a gap of a "
+	            "single space will be inserted as a fallback. If the tab "
+	            "style is wordprocessor then any tab character being laid out "
+	            "will use (and be defined by) the first tab stop to the right "
+	            "of the preceding characters already laid out on that line. "
+	            "The value of the -tabstyle option may be overridden by "
+	            "-tabstyle options in tags. ",
 	"tearoff": "Normally, a menu can be torn off: the first position (position "
 	           "0) in the list of choices is occupied by the tear-off element, "
 	           "and the additional choices are added starting at position 1. "
@@ -560,7 +694,21 @@ options = {
 	      "can be either greater than or less than the from_ value. For "
 	      "vertical scales, the to value defines the bottom of the scale; for "
 	      "horizontal scales, the right end. The default value is 100.0. ",
+	"tristateimage": "Specifies an image to display (in place of the image "
+	                 "option) when the checkbutton is in tri-state mode. This "
+	                 "option is ignored unless the image option has been "
+	                 "specified. ",
+	"tristatevalue": "Specifies the value that causes the checkbutton to "
+	                 "display the multi-value selection, also known as the "
+	                 "tri-state mode. Defaults to ''. ",
 	"troughcolor": "The color of the trough.",
+	"type": "(Taken from Tk Commands)"
+	        "\nThis option can be one of menubar, tearoff, or normal, and is "
+	        "set when the menu is created. While the string returned by the "
+	        "configuration database will change if this option is changed, "
+	        "this does not affect the menu widget's behavior. This is used by "
+	        "the cloning mechanism and is not normally set outside of the Tk "
+	        "library. ",
 	"underline": "Default is -1, meaning that no character of the text on the "
 	             "widget will be underlined. Set this option to the "
 	             "index of a character in the text (counting from zero) to "
@@ -601,6 +749,12 @@ options = {
 	            "value will"
 	            "be converted to a string. See the the digits option, above, "
 	            "for more information on this conversion. ",
+	"visual": "(taken from Tk Commands)\n"
+	          "Specifies visual information for the new window in any of the "
+	          "forms accepted by Tk_GetVisual. If this option is not "
+	          "specified, the new window will use the same visual as its "
+	          "parent. The visual option may not be modified with the "
+	          "configure widget command.",
 	"width": "If the label is text, this option specifies the absolute width "
 	         "of the text area on the widget, as a number of characters. The "
 	         "actual width is that number multiplied by the average width of "
