@@ -79,7 +79,7 @@ options = {
 	           "'Name' and 'Size'. ",
 	"confine": "If true (the default), the canvas cannot be scrolled outside of "
 	           "the scrollregion (see below). ",
-	"command": "A function to be called whenever a widget is asking for, "
+	"command": "A function to be called whenever a widget is asking for it, "
 	           "for example when a button is pressed or a scrollbar is moved.",
 	"compound": "If you provide both image and text options, the compound "
 	            "option specifies the position of the image relative to the "
