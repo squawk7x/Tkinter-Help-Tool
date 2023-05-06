@@ -6,7 +6,7 @@
 __author__ = "Andreas Ottburg"
 __copyright__ = "GPLv3"
 __contact__ = "andreas@ottburg.de"
-__credits__ = ["John Shipmann"]
+__credits__ = ["John W. Shipmann"]
 __date__ = "2023/05/04"
 __maintainer__ = "Andreas Ottburg"
 __status__ = "Production"
@@ -41,6 +41,8 @@ s.configure('Caption.TLabel',
 class Application(Frame):
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
+		self.om_choices = None
+		self.om_var = StringVar()
 		self.definition_var = StringVar()
 		self.cbox1_var = StringVar()
 		self.cbox2_var = StringVar()
@@ -56,6 +58,7 @@ class Application(Frame):
 		self.widget_lf = None
 		self.filter_lf = None
 		self.rb_off = None
+		self.rb_bind = None
 		self.rb_grid = None
 		self.rb_pack = None
 		self.rb_place = None
@@ -93,6 +96,7 @@ class Application(Frame):
 		                         'LabelFrame',
 		                         'Menu',
 		                         'Menubutton',
+		                         'OptionMenu',
 		                         'PanedWindow',
 		                         'Radiobutton', 'Scale',
 		                         'Scrollbar',
@@ -104,6 +108,7 @@ class Application(Frame):
 		                        ('messagebox', 'filedialog', 'colorchooser') +
 		                        ('object',))
 		self.cbox2['values'] = self.cbox1['values']
+		self.om_choices = self.cbox1['values']
 
 	def toggle(self):
 		temp1 = self.cbox1_var.get()
@@ -128,7 +133,7 @@ class Application(Frame):
 		self.cbox2 = ttk.Combobox(self, textvariable=self.cbox2_var)
 		self.set_values()
 		self.cbox1_var.set('ttk.Button')
-		self.cbox2_var.set('Widget')
+		self.cbox2_var.set('object')
 
 		self.widget_lf = ttk.Labelframe(self, text='Widget', labelanchor='n',
 		                                width=180, height=40)
@@ -143,6 +148,9 @@ class Application(Frame):
 		self.rb_off = ttk.Radiobutton(self.filter_lf, text='off', width=5,
 		                              variable=self.method_var, value='',
 		                              command=self.show_methods)
+		self.rb_bind = ttk.Radiobutton(self.filter_lf, text='bind', width=5,
+		                               variable=self.method_var, value='^.*bind.*$',
+		                               command=self.show_methods)
 		self.rb_grid = ttk.Radiobutton(self.filter_lf, text='grid', width=5,
 		                               variable=self.method_var, value='^grid',
 		                               command=self.show_methods)
@@ -171,9 +179,11 @@ class Application(Frame):
 		self.notebook.add(self.options_frm, text='Options')
 
 		self.methods_text = ScrolledText(self.methods_frm, bg='#ffffdd',
+		                                 fg='#663300',
 		                                 wrap='word',
 		                                 font=font.Font(size=10), height=45)
 		self.options_text = ScrolledText(self.options_frm, bg='#ffffdd',
+		                                 fg='#663300',
 		                                 wrap='word',
 		                                 font=font.Font(size=10), height=45)
 		# Layout
@@ -187,7 +197,8 @@ class Application(Frame):
 		self.showButton.grid(column=1, row=5, padx=5, pady=10, sticky='ns')
 		self.filter_lf.grid(column=2, row=5, sticky='ns')
 		self.rb_off.invoke()
-		self.rb_off.grid(column=0, row=1)
+		self.rb_off.grid(column=0, row=0)
+		self.rb_bind.grid(column=0, row=2)
 		self.rb_grid.grid(column=1, row=0)
 		self.rb_pack.grid(column=1, row=1)
 		self.rb_place.grid(column=1, row=2)
@@ -220,6 +231,7 @@ class Application(Frame):
 		                lambda e: self.showButton.invoke())
 
 	def get_widget1(self):
+
 		if self.cbox1_var.get() in {'Tk', 'Menu', 'Misc', 'Pack', 'Place',
 		                            'Grid', 'object'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}()")
@@ -231,13 +243,19 @@ class Application(Frame):
 				F"{self.cbox1_var.get()}(self.widget_lf, None)")
 		elif self.cbox1_var.get() in {'messagebox'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}")
-		# messagebox.showinfo('Tkinter Help Tool', 'Version 1.0')
+			# messagebox.showinfo('Tkinter Help Tool', 'Version 1.0')
 		elif self.cbox1_var.get() in {'filedialog'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}")
-		# filedialog.askdirectory()
+			# filedialog.askdirectory()
 		elif self.cbox1_var.get() in {'colorchooser'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}")
-		# colorchooser.askcolor()
+			# colorchooser.askcolor()
+		elif self.cbox1_var.get() in {'OptionMenu'}:
+			self.om_var.set('OptionMenu')
+			self.widget1 = eval(
+				F"{self.cbox1_var.get()}(self.widget_lf, "
+				F"{self.om_var.get()}, 'OptionMenu', *{self.om_choices})")
+			self.widget1.pack(fill='x')
 		elif self.cbox1_var.get() in self.cbox1['values']:
 			self.widget1 = eval(F"{self.cbox1_var.get()}(self.widget_lf)")
 			if issubclass(self.widget1.__class__, (Scrollbar, ttk.Scrollbar)):
@@ -260,6 +278,11 @@ class Application(Frame):
 		elif self.cbox2_var.get() in {'BaseWidget'}:
 			self.widget2 = eval(
 				F"{self.cbox2_var.get()}(self.widget_lf, 'toplevel')")
+		elif self.cbox2_var.get() in {'OptionMenu'}:
+			self.om_var.set('OptionMenu')
+			self.widget2 = eval(
+				F"{self.cbox2_var.get()}(self.widget_lf, "
+				F"{self.om_var.get()}, 'OptionMenu', *{self.om_choices})")
 		elif self.cbox2_var.get() in {'ttk.Widget', 'Widget'}:
 			self.widget2 = eval(
 				F"{self.cbox2_var.get()}(self.widget_lf, None)")
@@ -343,15 +366,18 @@ class Application(Frame):
 		for option in sorted(widget1_options):
 			try:
 				print("{:<}".format(option))
-				print("default value:", self.widget1.config()[option][3])
+				if self.widget1.config()[option][3]:
+					print("Default value is:", self.widget1.config()[option][3])
 				print("{:<}\n".format(options[option]))
 			except KeyError:
 				self.bell()
 				print('no hint available\n')
-			except IndexError:
-				print('default value not available\n')
-			else:
-				pass
+			# except IndexError as err:
+			# 	self.bell()
+			# 	print('default value not available\n')
+			# 	print(err)
+			# else:
+			# 	pass
 
 		screen_text = my_stdout.getvalue()
 		self.options_text.replace(0.1, 'end', screen_text)
