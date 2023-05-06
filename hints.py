@@ -1,8 +1,8 @@
 options = {
-	"activebackground": "Background color when the widget is under the cursor."
+	"activebackground": "Background color when the widget is under the cursor. "
 	                    "Use a style map to control the background "
 	                    "option.",
-	"activeforeground": "Foreground color when the widget is under the cursor."
+	"activeforeground": "Foreground color when the widget is under the cursor. "
 	                    "Use a style map to control the foreground "
 	                    "option.",
 	"activeborderwidth": "Specifies a non-negative value indicating the width "
@@ -13,7 +13,7 @@ options = {
 	"activerelief": "Specifies the relief to use when displaying the element "
 	                "that is active, if any. Elements other than the active "
 	                "element are always displayed with a raised relief.",
-	"activestyle": "This option specifies the appearance of the active line."
+	"activestyle": "This option specifies the appearance of the active line. "
 	               "It may have any of these values:"
 	               "\n'underline' The active line is underlined. This is the "
 	               "default option."
@@ -31,7 +31,7 @@ options = {
 	"aspect": "Use this option to specify the ratio of width to height as a "
 	          "percentage. "
 	          "\nFor example, aspect=100 would give you a text message fit "
-	          "into a square. with aspect=200, the text area would"
+	          "into a square. with aspect=200, the text area would "
 	          "be twice as wide as high. The default value is 150, that is, "
 	          "the text will be fit into a box 50% wider than it is high.",
 	"autoseparators": "If the undo option is set, the auto separators option of "
@@ -40,10 +40,10 @@ options = {
 	                  "insertion or deletion (ifautoseparators=True) or not ("
 	                  "if autoseparators=False).",
 	"background": "Normal background color. For the bitmap option, this "
-	              "specifies the color displayed for 0-bits in the bitmap."
+	              "specifies the color displayed for 0-bits in the bitmap. "
 	              "Configure the background option using a style.",
 	"bg": "Normal background color. For the bitmap option, this "
-	      "specifies the color displayed for 0-bits in the bitmap."
+	      "specifies the color displayed for 0-bits in the bitmap. "
 	      "Configure the background option using a style.",
 	"bigincrement": "Some interactions with the scale cause its value to "
 	                "change by “large” increments. This option specifies the "
@@ -189,7 +189,7 @@ options = {
 	                      "widget is in the tk.DISABLED state. Use a style "
 	                      "map for the foreground option.",
 	"disabledforeground": "The foreground color to be displayed when the "
-	                      "widget is in the tk.DISABLED state."
+	                      "widget is in the tk.DISABLED state. "
 	                      "Use a style map for the foreground option.",
 	"displaycolumns": "Selects which columns are actually displayed and "
 	                  "determines the order of their presentation. Values may "
@@ -202,7 +202,7 @@ options = {
 	                  "\n For example, suppose you specify columns=('Name', "
 	                  "'Size', 'Date'). This means each call to the .insert() "
 	                  "method will require an argument values=(name, size, "
-	                  "date) to supply the values that will be displayed."
+	                  "date) to supply the values that will be displayed. "
 	                  "Let's call this sequence the logical column sequence."
 	                  "\nFurther suppose that in the constructor you specify "
 	                  "columns=(2,0). The physical column sequence, "
@@ -251,7 +251,7 @@ options = {
 	"handlepad": "Use this option to specify the distance between the handle "
 	             "and the end of the sash. For orient=tk.VERTICAL, this is the "
 	             "distance between the left end of the sash and the handle."
-	             "for orient=tk.HORIZONTAL, it is the distance between the top "
+	             "For orient=tk.HORIZONTAL, it is the distance between the top "
 	             "of the sash and the handle.",
 	"handlesize": "Use this option to specify the size of the handle, which is "
 	              "always a square.",
@@ -263,7 +263,7 @@ options = {
 	          "determined by the height of the child widgets."
 	          "\nNumber of lines (not pixels) shown in the listbox."
 	          "\nUse this option for combobox to specify a maximum number of "
-	          "rows that will appear in the drop-down menu."
+	          "rows that will appear in the drop-down menu. "
 	          "If there are more values than this number, the drop-down menu "
 	          "will automatically include a vertical scrollbar.",
 	"highlightbackground": "To control the color of the focus highlight when "
@@ -300,7 +300,7 @@ options = {
 	         "\n          ('!disabled', 'alternate'), im3), ...)"
 	         "\nThe widget will display image im2 if it is in the selected "
 	         "state. If it is not in the selected state or the disabled state "
-	         "but it is in the alternate state, it will display image im3."
+	         "but it is in the alternate state, it will display image im3. "
 	         "Otherwise it will display image im1.",
 	"inactiveselectbackground": "Specifies the colour to use for the "
 	                            "selection (the 'sel' tag) when the window does "
@@ -335,7 +335,7 @@ options = {
 	"insertofftime": "By default, the insertion cursor blinks. You can set "
 	                 "insertofftime to a value in milliseconds to specify how "
 	                 "much time the insertion cursor spends off. If you use "
-	                 "insertofftime=0, the insertion cursor"
+	                 "insertofftime=0, the insertion cursor "
 	                 "won't blink at all.",
 	"insertontime": "Similar to insertofftime, this option specifies how much "
 	                "time the cursor spends on per blink.",
@@ -354,14 +354,14 @@ options = {
 	"invcmd": "You may set this option to a callback function that "
 	          "will be called whenever validation fails (that is, "
 	          "when the validatecommand returns a 0).",
-	"jump": "This option controls what happens when a user drags the slider."
+	"jump": "This option controls what happens when a user drags the slider. "
 	        "Normally (jump=0), every small drag of the slider causes the "
 	        "command callback to be called. If you set this option to 1, "
 	        "the callback isn't called until the user releases the mouse "
 	        "button.",
 	"justify": "How to show multiple text lines: tk.LEFT to left-justify each "
-	           "line. tk.CENTER to center them. or tk.RIGHT to right-justify."
-	           "If the text contains newline ('\\n') characters, the text will"
+	           "line. tk.CENTER to center them. or tk.RIGHT to right-justify. "
+	           "If the text contains newline ('\\n') characters, the text will "
 	           "occupy multiple lines on the widget. The justify option "
 	           "controls how each line is positioned horizontally. Configure "
 	           "this option using a style.",
@@ -373,7 +373,7 @@ options = {
 	               "the widget's border. The default position is 'nw', "
 	               "which places the label at the left end of the top border.",
 	"labelwidget": "Instead of a text label, you can use any widget as the "
-	               "label by passing that widget as the value of this option."
+	               "label by passing that widget as the value of this option. "
 	               "If you supply both labelwidget and text options, the text "
 	               "option is ignored."
 	               "\nFor example, if you don't like the rather small and "
@@ -412,7 +412,7 @@ options = {
 	        "the application.",
 	"mode": "If your program cannot accurately depict the relative progress "
 	        "that this widget is supposed to display, "
-	        "use mode='indeterminate'. In this mode, a rectangle bounces back"
+	        "use mode='indeterminate'. In this mode, a rectangle bounces back "
 	        "and forth between the ends of the widget once you use the .start("
 	        ") method."
 	        "\nIf your program has some measure of relative progress, "
@@ -435,18 +435,11 @@ options = {
 	          "points of the line/polygon. Note that stipple offsets are only "
 	          "supported on X11. they are silently ignored on other "
 	          "platforms.",
-	"offvalue": "Normally, a checkbutton's associated control variable will be "
-	            "set to 0 when it is cleared (off). You can supply an alternate "
-	            "value for the off state by setting offvalue to that value."
-	            "\nBy default, when a checkbutton is in the off (unchecked) "
+	"offvalue": "By default, when a checkbutton is in the off (unchecked) "
 	            "state, the value of the associated variable is 0. You can "
 	            "use the offvalue option to specify a different value for the "
 	            "off state.",
-	"onvalue": "Normally, a checkbutton's associated control variable will be "
-	           "set to 1 when it is set (on). You can supply an alternate "
-	           "value for the on state by setting onvalue to that value."
-	           "value for the off state by setting offvalue to that value."
-	           "\nBy default, when a checkbutton is in the on (checked) "
+	"onvalue": "By default, when a checkbutton is in the on (checked) "
 	           "state, the value of the associated variable is 1. You can use "
 	           "the onvalue option to specify a different value for the on "
 	           "state.",
@@ -526,9 +519,9 @@ options = {
 	                  "is held down, set this option to a number of "
 	                  "milliseconds to be used between repeats, and set the "
 	                  "repeatdelay to the number of milliseconds to wait "
-	                  "before starting to repeat. "
+	                  "before starting to repeat."
 	                  "\nFor example, if you specify "
-	                  "“repeatdelay=500, repeatinterval=100” the button will "
+	                  "repeatdelay=500, repeatinterval=100” the button will "
 	                  "fire after half a second, and every tenth of a second "
 	                  "thereafter, until the user releases the mouse button."
 	                  "If the user does not hold the mouse button down at "
@@ -564,7 +557,7 @@ options = {
 	              "\ntk.SINGLE: You can only select one line, and you can't drag "
 	              "the mouse—wherever you click button 1, that line is "
 	              "selected."
-	              "\ntk.MULTIPLE: You can select any number of lines at once."
+	              "\ntk.MULTIPLE: You can select any number of lines at once. "
 	              "Clicking on any line toggles whether or not it is "
 	              "selected."
 	              "\ntk.EXTENDED: You can select any adjacent group of lines at "
@@ -588,13 +581,13 @@ options = {
 	           "be constrained to integral numbers of grid units. See the "
 	           "section GRIDDED GEOMETRY MANAGEMENT in the wm manual entry "
 	           "for more details.",
-	"show": "Normally, the characters that the user types appear in the entry."
+	"show": "Normally, the characters that the user types appear in the entry. "
 	        "To make a “password” entry that echoes each character as an "
 	        "asterisk, set show='*'."
 	        "\nTo protect fields such as passwords from being visible on the "
 	        "screen, set this option to a string, whose first character will "
-	        "be substituted for each of the actual characters in the field."
-	        "For example, if the field contains “ sesame” but you have "
+	        "be substituted for each of the actual characters in the field. "
+	        "\nFor example, if the field contains “sesame” but you have "
 	        "specified show='*', the field will appear as “******”."
 	        "\nTo suppress the labels on a treeview at the top of each "
 	        "column, specify show='tree'. The default is to show the column "
@@ -630,7 +623,7 @@ options = {
 	             "configuration option, which will configure the widget to "
 	             "start at the very first line in the textual data store.",
 	"state": "Different widgets have different default values for this option. "
-	         "Possible values are: "
+	         "\nPossible values are:"
 	         "\ntk.ACTIVE"
 	         "\ntk.NORMAL"
 	         "\ntk.DISABLED."
@@ -729,7 +722,7 @@ options = {
 	"underline": "Default is -1, meaning that no character of the text on the "
 	             "widget will be underlined. Set this option to the "
 	             "index of a character in the text (counting from zero) to "
-	             "underline that character. For example, underline=1"
+	             "underline that character. For example, underline=1 "
 	             "would underline the second character of the button's text.",
 	"undo": "Set this option to True to enable the undo mechanism, or False to "
 	        "disable it.",
@@ -789,7 +782,7 @@ options = {
 	         "orient=tk.HORIZONTAL."
 	         "\nUse this option to specify the number of characters allowed "
 	         "in the entry part of the spinbox widget. The default value is 20."
-	         "\nUse this option to specify a fixed width or a minimum width."
+	         "\nUse this option to specify a fixed width or a minimum width. "
 	         "The value is specified in characters. a positive value sets a "
 	         "fixed width of that many average characters, while a negative "
 	         "width sets a minimum width."

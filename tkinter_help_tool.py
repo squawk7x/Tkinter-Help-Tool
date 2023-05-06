@@ -10,7 +10,7 @@ __credits__ = ["John W. Shipmann"]
 __date__ = "2023/05/04"
 __maintainer__ = "Andreas Ottburg"
 __status__ = "Production"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 import io
 import re
@@ -41,12 +41,7 @@ s.configure('Caption.TLabel',
 class Application(Frame):
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
-		self.om_choices = None
-		self.om_var = StringVar()
-		self.definition_var = StringVar()
-		self.cbox1_var = StringVar()
-		self.cbox2_var = StringVar()
-		self.method_var = StringVar()
+		self.top = None
 		self.caption_label = None
 		self.definition_label = None
 		self.cbox1 = None
@@ -58,6 +53,7 @@ class Application(Frame):
 		self.widget_lf = None
 		self.filter_lf = None
 		self.rb_off = None
+		self.rb_event = None
 		self.rb_bind = None
 		self.rb_grid = None
 		self.rb_pack = None
@@ -68,8 +64,24 @@ class Application(Frame):
 		self.notebook = None
 		self.methods_frm = None
 		self.options_frm = None
+		self.events_frm = None
 		self.methods_text = None
 		self.options_text = None
+		self.mouse_lf = None
+		self.keyboard_lf = None
+		self.app_lf = None
+		self.mouse_text = None
+		self.keyboard_text = None
+		self.app_text = None
+		self.definition_var = StringVar()
+		self.option_menu_var = StringVar()
+		self.option_menu_choices = []
+		self.cbox1_var = StringVar()
+		self.cbox2_var = StringVar()
+		self.method_var = StringVar()
+		self.mouse_var = StringVar()
+		self.keyboard_var = StringVar()
+		self.app_var = StringVar()
 		self.createWidgets()
 
 	def set_values(self):
@@ -108,7 +120,10 @@ class Application(Frame):
 		                        ('messagebox', 'filedialog', 'colorchooser') +
 		                        ('object',))
 		self.cbox2['values'] = self.cbox1['values']
-		self.om_choices = self.cbox1['values']
+		self.option_menu_choices = self.cbox1['values']
+		self.mouse_var.set('Move in with mouse')
+		self.keyboard_var.set('Press a key')
+		self.keyboard_var.set('Activate, Resize, ...')
 
 	def toggle(self):
 		temp1 = self.cbox1_var.get()
@@ -117,10 +132,14 @@ class Application(Frame):
 		self.cbox1_var.set(temp2)
 		self.showButton.invoke()
 
+	def evaluate_event(self, event):
+		self.after(100, self.keyboard_var.set(event))
+		print(event)
+
 	def createWidgets(self):
 
 		# Definition
-		top = self.winfo_toplevel()
+		self.top = self.winfo_toplevel()
 		self.notebook = ttk.Notebook(self)
 
 		self.caption_label = ttk.Label(self, textvariable=self.cbox1_var,
@@ -141,15 +160,21 @@ class Application(Frame):
 		self.widget_lf.grid(column=0, row=5, sticky='ns')
 		self.filter_lf = ttk.Labelframe(self,
 		                                text='Method Filter', labelanchor='n')
-		self.toggleButton = ttk.Button(self, text='⇆', command=self.toggle)
+		self.toggleButton = ttk.Button(self, text='   ⇆   ',
+		                               command=self.toggle)
 		self.showButton = ttk.Button(self,
 		                             text='↖ Unique Methods compared to ↗',
 		                             command=self.show_methods)
 		self.rb_off = ttk.Radiobutton(self.filter_lf, text='off', width=5,
 		                              variable=self.method_var, value='',
 		                              command=self.show_methods)
+		self.rb_event = ttk.Radiobutton(self.filter_lf, text='event', width=5,
+		                                variable=self.method_var,
+		                                value='^.*event.*$',
+		                                command=self.show_methods)
 		self.rb_bind = ttk.Radiobutton(self.filter_lf, text='bind', width=5,
-		                               variable=self.method_var, value='^.*bind.*$',
+		                               variable=self.method_var,
+		                               value='^.*bind.*$',
 		                               command=self.show_methods)
 		self.rb_grid = ttk.Radiobutton(self.filter_lf, text='grid', width=5,
 		                               variable=self.method_var, value='^grid',
@@ -175,8 +200,10 @@ class Application(Frame):
 		                             command=self.show_methods)
 		self.methods_frm = Frame(self.notebook)
 		self.options_frm = Frame(self.notebook)
+		self.events_frm = Frame(self.notebook)
 		self.notebook.add(self.methods_frm, text='Methods')
 		self.notebook.add(self.options_frm, text='Options')
+		self.notebook.add(self.events_frm, text='Events')
 
 		self.methods_text = ScrolledText(self.methods_frm, bg='#ffffdd',
 		                                 fg='#663300',
@@ -186,6 +213,26 @@ class Application(Frame):
 		                                 fg='#663300',
 		                                 wrap='word',
 		                                 font=font.Font(size=10), height=45)
+
+		self.mouse_lf = ttk.Labelframe(self.events_frm, text='Mouse Events')
+		self.keyboard_lf = ttk.Labelframe(self.events_frm,
+		                                  text='Keyboard Events')
+		self.app_lf = ttk.Labelframe(self.events_frm,
+		                             text='Application Events')
+
+		self.keyboard_text = ScrolledText(self.keyboard_lf, bg='#ffffdd',
+		                                  fg='#663300',
+		                                  wrap='word',
+		                                  font=font.Font(size=10), height=45)
+		self.mouse_text = ScrolledText(self.mouse_lf, bg='#ffffdd',
+		                               fg='#663300',
+		                               wrap='word',
+		                               font=font.Font(size=10), height=45)
+		self.app_text = ScrolledText(self.app_lf, bg='#ffffdd',
+		                             fg='#663300',
+		                             wrap='word',
+		                             font=font.Font(size=10), height=45)
+
 		# Layout
 		self.grid(sticky='nesw')
 		self.caption_label.grid(column=0, row=0, sticky='ew',
@@ -198,6 +245,7 @@ class Application(Frame):
 		self.filter_lf.grid(column=2, row=5, sticky='ns')
 		self.rb_off.invoke()
 		self.rb_off.grid(column=0, row=0)
+		self.rb_event.grid(column=0, row=1)
 		self.rb_bind.grid(column=0, row=2)
 		self.rb_grid.grid(column=1, row=0)
 		self.rb_pack.grid(column=1, row=1)
@@ -208,13 +256,19 @@ class Application(Frame):
 		self.notebook.grid(column=0, row=10, columnspan=3, sticky='nesw')
 		self.methods_text.grid(sticky='nesw')
 		self.options_text.grid(sticky='nesw')
+		self.keyboard_lf.grid(column=0, row=0, sticky='nesw')
+		self.keyboard_text.grid(sticky='nesw')
+		self.mouse_lf.grid(column=0, row=1, sticky='nesw')
+		self.mouse_text.grid(sticky='nesw')
+		self.app_lf.grid(column=0, row=2, sticky='nesw')
+		self.app_text.grid(sticky='nesw')
 
 		for w in self.winfo_children():
 			w.grid_configure(padx=3, pady=3)
 
 		# Configuration
-		top.rowconfigure(0, weight=1)
-		top.columnconfigure(0, weight=1)
+		self.top.rowconfigure(0, weight=1)
+		self.top.columnconfigure(0, weight=1)
 		self.configure(height=800, width=550, padx=2, pady=2)
 		self.columnconfigure('all', weight=1)
 		self.rowconfigure('all', weight=0)
@@ -223,12 +277,34 @@ class Application(Frame):
 		self.methods_frm.columnconfigure(0, weight=1)
 		self.options_frm.rowconfigure(0, weight=1)
 		self.options_frm.columnconfigure(0, weight=1)
-
+		self.events_frm.rowconfigure(0, weight=1)
+		self.events_frm.columnconfigure('all', weight=1)
+		self.events_frm.rowconfigure('all', weight=1)
+		self.keyboard_lf.columnconfigure(0, weight=1)
+		self.keyboard_lf.rowconfigure(0, weight=1)
+		self.mouse_lf.columnconfigure(0, weight=1)
+		self.mouse_lf.rowconfigure(0, weight=1)
+		self.app_lf.columnconfigure(0, weight=1)
+		self.app_lf.rowconfigure(0, weight=1)
 		# Bindings
 		self.cbox1.bind("<<ComboboxSelected>>",
 		                lambda e: self.showButton.invoke())
 		self.cbox2.bind("<<ComboboxSelected>>",
 		                lambda e: self.showButton.invoke())
+
+		for event_type in ['<KeyPress>', '<KeyRelease>']:
+			self.keyboard_text.bind(event_type, self.evaluate_event)
+
+		for event_type in ['<ButtonPress>', '<ButtonRelease>', '<MouseWheel>',
+		                   '<Motion>', '<Enter>', '<Leave>']:
+			self.mouse_text.bind(event_type, self.evaluate_event)
+
+		for event_type in ['<Visibility>',
+		                   '<Unmap>', '<Map>', '<Expose>', '<FocusIn>',
+		                   '<FocusOut>', '<Circulate>', '<Colormap>',
+		                   '<Gravity>', '<Reparent>', '<Property>',
+		                   '<Destroy>', '<Activate>', '<Deactivate>']:
+			self.app_text.bind(event_type, self.evaluate_event)
 
 	def get_widget1(self):
 
@@ -243,18 +319,18 @@ class Application(Frame):
 				F"{self.cbox1_var.get()}(self.widget_lf, None)")
 		elif self.cbox1_var.get() in {'messagebox'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}")
-			# messagebox.showinfo('Tkinter Help Tool', 'Version 1.0')
+		# messagebox.showinfo('Tkinter Help Tool', 'Version 1.0')
 		elif self.cbox1_var.get() in {'filedialog'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}")
-			# filedialog.askdirectory()
+		# filedialog.askdirectory()
 		elif self.cbox1_var.get() in {'colorchooser'}:
 			self.widget1 = eval(F"{self.cbox1_var.get()}")
-			# colorchooser.askcolor()
+		# colorchooser.askcolor()
 		elif self.cbox1_var.get() in {'OptionMenu'}:
-			self.om_var.set('OptionMenu')
+			self.option_menu_var.set('Select an Option')
 			self.widget1 = eval(
-				F"{self.cbox1_var.get()}(self.widget_lf, "
-				F"{self.om_var.get()}, 'OptionMenu', *{self.om_choices})")
+				F"OptionMenu(self.widget_lf, "
+				F"self.option_menu_var, *{self.option_menu_choices})")
 			self.widget1.pack(fill='x')
 		elif self.cbox1_var.get() in self.cbox1['values']:
 			self.widget1 = eval(F"{self.cbox1_var.get()}(self.widget_lf)")
@@ -279,10 +355,10 @@ class Application(Frame):
 			self.widget2 = eval(
 				F"{self.cbox2_var.get()}(self.widget_lf, 'toplevel')")
 		elif self.cbox2_var.get() in {'OptionMenu'}:
-			self.om_var.set('OptionMenu')
+			self.option_menu_var.set('Select an Option')
 			self.widget2 = eval(
-				F"{self.cbox2_var.get()}(self.widget_lf, "
-				F"{self.om_var.get()}, 'OptionMenu', *{self.om_choices})")
+				F"OptionMenu(self.widget_lf, "
+				F"self.option_menu_var, *{self.option_menu_choices})")
 		elif self.cbox2_var.get() in {'ttk.Widget', 'Widget'}:
 			self.widget2 = eval(
 				F"{self.cbox2_var.get()}(self.widget_lf, None)")
@@ -326,7 +402,8 @@ class Application(Frame):
 			screen_txt = ''
 
 		self.methods_text.configure(state=NORMAL)
-		header = f'Unique Methods of {self.cbox1_var.get()} ⇆ {self.cbox2_var.get()}:\n\n'
+		header = f'Unique Methods of {self.cbox1_var.get()} ' \
+		         f'   ⇆    {self.cbox2_var.get()}:\n\n'
 		self.methods_text.replace(0.1, 'end',
 		                          header + str(unique_methods) + '\n\n')
 		if issubclass(self.widget1.__class__, BaseWidget):
@@ -360,22 +437,23 @@ class Application(Frame):
 		self.options_text.configure(state=NORMAL)
 		print(f"{self.widget1.__doc__}\n")
 		print(f"Unique Options of {self.widget1.__class__} "
-		      f"⇆ {self.widget2.__class__}\n")
+		      f"   ⇆    {self.widget2.__class__}\n")
 		print(unique_options)
 		print(f"\nAll Options on {self.widget1.__class__}\n")
 		for option in sorted(widget1_options):
 			try:
 				print("{:<}".format(option))
 				if self.widget1.config()[option][3]:
-					print("Default value is:", self.widget1.config()[option][3])
+					print("Default value is:",
+					      self.widget1.config()[option][3])
 				print("{:<}\n".format(options[option]))
 			except KeyError:
-				#self.bell()
+				# self.bell()
 				print('no hint available\n')
 			except IndexError as err:
-				#self.bell()
-				print('default value not available\n')
-				print(err)
+				# self.bell()
+				print('not available\n')
+				pass
 			else:
 				pass
 
