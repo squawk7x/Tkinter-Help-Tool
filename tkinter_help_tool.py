@@ -370,14 +370,14 @@ class Application(Frame):
 					print("Default value is:", self.widget1.config()[option][3])
 				print("{:<}\n".format(options[option]))
 			except KeyError:
-				self.bell()
+				#self.bell()
 				print('no hint available\n')
-			# except IndexError as err:
-			# 	self.bell()
-			# 	print('default value not available\n')
-			# 	print(err)
-			# else:
-			# 	pass
+			except IndexError as err:
+				#self.bell()
+				print('default value not available\n')
+				print(err)
+			else:
+				pass
 
 		screen_text = my_stdout.getvalue()
 		self.options_text.replace(0.1, 'end', screen_text)
