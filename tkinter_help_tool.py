@@ -12,14 +12,14 @@ __maintainer__ = "Andreas Ottburg"
 __status__ = "Production"
 __version__ = "0.0.2"
 
+import inspect
 import io
 import re
 import sys
 from tkinter import *
 from tkinter import ttk, font
-from tkinter import messagebox, filedialog, colorchooser
 from tkinter.scrolledtext import ScrolledText
-import inspect
+
 from hints import options
 
 
@@ -291,7 +291,6 @@ class Application(Frame):
 		                   '<Destroy>', '<Activate>', '<Deactivate>']:
 			self.bind(event_type, self.log_event)
 
-
 	def get_widget1(self):
 
 		if self.cbox1_var.get() in {'Tk', 'Menu', 'Misc', 'Pack', 'Place',
@@ -454,11 +453,14 @@ class Application(Frame):
 
 	def log_event(self, event):
 		self.events_text.configure(state=NORMAL)
+		if type(event.keycode) is int:
+			self.events_text.insert(0.1,
+			                        f"KEYSYM_NUM: {event.keysym_num} | STATE MASK: {event.state} == {hex(event.state)} == {bin(event.state)}\n")
 		self.events_text.insert(0.1, f"{event}\n")
+
 		# for attr in event.__dict__.items():
 		# 	self.events_text.insert(0.1, f"{attr}\n")
 		self.events_text.configure(state=DISABLED)
-
 
 app = Application()
 app.master.title('Tkinter Help Tool')
