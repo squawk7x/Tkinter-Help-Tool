@@ -77,6 +77,7 @@ class Application(Frame):
 		self.cbox1_var = StringVar()
 		self.cbox2_var = StringVar()
 		self.method_var = StringVar()
+		self.entry_field_var = StringVar()
 		self.createWidgets()
 
 	def set_values(self):
@@ -116,6 +117,7 @@ class Application(Frame):
 		                        ('object',))
 		self.cbox2['values'] = self.cbox1['values']
 		self.option_menu_choices = self.cbox1['values']
+		self.entry_field_var.set('Enter text here to evaluate keyboard events:')
 
 	def toggle(self):
 		temp1 = self.cbox1_var.get()
@@ -126,7 +128,7 @@ class Application(Frame):
 
 	def evaluate_event(self, event):
 		self.events_text.configure(state=NORMAL)
-		self.events_text.insert(0.1, f'{event}\n')
+		self.events_text.insert(0.1, f"{event}\n")
 		self.events_text.configure(state=DISABLED)
 
 	def createWidgets(self):
@@ -208,11 +210,13 @@ class Application(Frame):
 		                                 font=font.Font(size=11), height=60)
 		self.sensor_lf = ttk.Labelframe(self.events_frm, text='Sensor field',
 		                                labelanchor='n', height=140)
-		self.entry_field = ttk.Entry(self.sensor_lf)
 		self.mouse_field = ttk.Label(self.sensor_lf, anchor='n',
 		                             relief='ridge',
 		                             background='grey', foreground='white',
-		                             text='Move mouse into this field')
+		                             text='\n\nmove mouse here & push '
+		                                  'a button\n\n')
+		self.entry_field = ttk.Entry(self.sensor_lf,
+		                             textvariable=self.entry_field_var)
 		self.events_text = ScrolledText(self.events_frm, bg='#ffffdd',
 		                                fg='#663300',
 		                                wrap='word',
@@ -243,8 +247,8 @@ class Application(Frame):
 		self.options_text.grid(sticky='nesw')
 		self.sensor_lf.propagate(0)
 		self.sensor_lf.grid(sticky='nesw')
-		self.entry_field.grid(sticky='ew')
 		self.mouse_field.grid(sticky='nesw')
+		self.entry_field.grid(sticky='ew')
 		self.events_text.grid(sticky='nesw')
 
 		for w in self.winfo_children():
@@ -265,10 +269,10 @@ class Application(Frame):
 		self.events_frm.rowconfigure('all', weight=0)
 		self.sensor_lf.columnconfigure('all', weight=1)
 		self.sensor_lf.rowconfigure('all', weight=1)
-		self.mouse_field.columnconfigure('all', weight=1)
-		self.mouse_field.rowconfigure('all', weight=1)
 		self.entry_field.columnconfigure('all', weight=1)
 		self.entry_field.rowconfigure('all', weight=1)
+		self.mouse_field.columnconfigure('all', weight=1)
+		self.mouse_field.rowconfigure('all', weight=1)
 
 		# Bindings
 		self.cbox1.bind("<<ComboboxSelected>>",
@@ -409,6 +413,9 @@ class Application(Frame):
 			widget1_options = set(self.widget1.configure().keys())
 			if 'text' in widget1_options:
 				self.widget1['text'] = self.cbox1_var.get()
+			if 'height' in widget1_options:
+				self.widget1['height'] = 50
+				self.widget1.propagate(0)
 
 		if issubclass(self.widget2.__class__, BaseWidget) and type(
 				self.widget2) not in {Widget, ttk.Widget}:
