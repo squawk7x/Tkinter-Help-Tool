@@ -64,24 +64,19 @@ class Application(Frame):
 		self.notebook = None
 		self.methods_frm = None
 		self.options_frm = None
-		self.events_frm = None
-		self.methods_text = None
 		self.options_text = None
-		self.mouse_lf = None
-		self.keyboard_lf = None
-		self.app_lf = None
-		self.mouse_text = None
-		self.keyboard_text = None
-		self.app_text = None
+		self.events_frm = None
+		self.sensor_lf = None
+		self.mouse_field = None
+		self.entry_field = None
+		self.events_text = None
+		self.methods_text = None
 		self.definition_var = StringVar()
 		self.option_menu_var = StringVar()
 		self.option_menu_choices = []
 		self.cbox1_var = StringVar()
 		self.cbox2_var = StringVar()
 		self.method_var = StringVar()
-		self.mouse_var = StringVar()
-		self.keyboard_var = StringVar()
-		self.app_var = StringVar()
 		self.createWidgets()
 
 	def set_values(self):
@@ -121,9 +116,6 @@ class Application(Frame):
 		                        ('object',))
 		self.cbox2['values'] = self.cbox1['values']
 		self.option_menu_choices = self.cbox1['values']
-		self.mouse_var.set('Move in with mouse')
-		self.keyboard_var.set('Press a key')
-		self.keyboard_var.set('Activate, Resize, ...')
 
 	def toggle(self):
 		temp1 = self.cbox1_var.get()
@@ -133,8 +125,9 @@ class Application(Frame):
 		self.showButton.invoke()
 
 	def evaluate_event(self, event):
-		self.after(100, self.keyboard_var.set(event))
-		print(event)
+		self.events_text.configure(state=NORMAL)
+		self.events_text.insert(0.1, f'{event}\n')
+		self.events_text.configure(state=DISABLED)
 
 	def createWidgets(self):
 
@@ -208,30 +201,22 @@ class Application(Frame):
 		self.methods_text = ScrolledText(self.methods_frm, bg='#ffffdd',
 		                                 fg='#663300',
 		                                 wrap='word',
-		                                 font=font.Font(size=10), height=45)
+		                                 font=font.Font(size=11), height=60)
 		self.options_text = ScrolledText(self.options_frm, bg='#ffffdd',
 		                                 fg='#663300',
 		                                 wrap='word',
-		                                 font=font.Font(size=10), height=45)
-
-		self.mouse_lf = ttk.Labelframe(self.events_frm, text='Mouse Events')
-		self.keyboard_lf = ttk.Labelframe(self.events_frm,
-		                                  text='Keyboard Events')
-		self.app_lf = ttk.Labelframe(self.events_frm,
-		                             text='Application Events')
-
-		self.keyboard_text = ScrolledText(self.keyboard_lf, bg='#ffffdd',
-		                                  fg='#663300',
-		                                  wrap='word',
-		                                  font=font.Font(size=10), height=45)
-		self.mouse_text = ScrolledText(self.mouse_lf, bg='#ffffdd',
-		                               fg='#663300',
-		                               wrap='word',
-		                               font=font.Font(size=10), height=45)
-		self.app_text = ScrolledText(self.app_lf, bg='#ffffdd',
-		                             fg='#663300',
-		                             wrap='word',
-		                             font=font.Font(size=10), height=45)
+		                                 font=font.Font(size=11), height=60)
+		self.sensor_lf = ttk.Labelframe(self.events_frm, text='Sensor field',
+		                                labelanchor='n', height=140)
+		self.entry_field = ttk.Entry(self.sensor_lf)
+		self.mouse_field = ttk.Label(self.sensor_lf, anchor='n',
+		                             relief='ridge',
+		                             background='grey', foreground='white',
+		                             text='Move mouse into this field')
+		self.events_text = ScrolledText(self.events_frm, bg='#ffffdd',
+		                                fg='#663300',
+		                                wrap='word',
+		                                font=font.Font(size=11), height=60)
 
 		# Layout
 		self.grid(sticky='nesw')
@@ -256,12 +241,11 @@ class Application(Frame):
 		self.notebook.grid(column=0, row=10, columnspan=3, sticky='nesw')
 		self.methods_text.grid(sticky='nesw')
 		self.options_text.grid(sticky='nesw')
-		self.keyboard_lf.grid(column=0, row=0, sticky='nesw')
-		self.keyboard_text.grid(sticky='nesw')
-		self.mouse_lf.grid(column=0, row=1, sticky='nesw')
-		self.mouse_text.grid(sticky='nesw')
-		self.app_lf.grid(column=0, row=2, sticky='nesw')
-		self.app_text.grid(sticky='nesw')
+		self.sensor_lf.propagate(0)
+		self.sensor_lf.grid(sticky='nesw')
+		self.entry_field.grid(sticky='ew')
+		self.mouse_field.grid(sticky='nesw')
+		self.events_text.grid(sticky='nesw')
 
 		for w in self.winfo_children():
 			w.grid_configure(padx=3, pady=3)
@@ -273,19 +257,19 @@ class Application(Frame):
 		self.columnconfigure('all', weight=1)
 		self.rowconfigure('all', weight=0)
 		self.rowconfigure(10, weight=3)
-		self.methods_frm.rowconfigure(0, weight=1)
-		self.methods_frm.columnconfigure(0, weight=1)
-		self.options_frm.rowconfigure(0, weight=1)
-		self.options_frm.columnconfigure(0, weight=1)
-		self.events_frm.rowconfigure(0, weight=1)
+		self.methods_frm.columnconfigure('all', weight=1)
+		self.methods_frm.rowconfigure('all', weight=1)
+		self.options_frm.columnconfigure('all', weight=1)
+		self.options_frm.rowconfigure('all', weight=1)
 		self.events_frm.columnconfigure('all', weight=1)
-		self.events_frm.rowconfigure('all', weight=1)
-		self.keyboard_lf.columnconfigure(0, weight=1)
-		self.keyboard_lf.rowconfigure(0, weight=1)
-		self.mouse_lf.columnconfigure(0, weight=1)
-		self.mouse_lf.rowconfigure(0, weight=1)
-		self.app_lf.columnconfigure(0, weight=1)
-		self.app_lf.rowconfigure(0, weight=1)
+		self.events_frm.rowconfigure('all', weight=0)
+		self.sensor_lf.columnconfigure('all', weight=1)
+		self.sensor_lf.rowconfigure('all', weight=1)
+		self.mouse_field.columnconfigure('all', weight=1)
+		self.mouse_field.rowconfigure('all', weight=1)
+		self.entry_field.columnconfigure('all', weight=1)
+		self.entry_field.rowconfigure('all', weight=1)
+
 		# Bindings
 		self.cbox1.bind("<<ComboboxSelected>>",
 		                lambda e: self.showButton.invoke())
@@ -293,18 +277,18 @@ class Application(Frame):
 		                lambda e: self.showButton.invoke())
 
 		for event_type in ['<KeyPress>', '<KeyRelease>']:
-			self.keyboard_text.bind(event_type, self.evaluate_event)
+			self.entry_field.bind(event_type, self.evaluate_event)
 
 		for event_type in ['<ButtonPress>', '<ButtonRelease>', '<MouseWheel>',
 		                   '<Motion>', '<Enter>', '<Leave>']:
-			self.mouse_text.bind(event_type, self.evaluate_event)
+			self.mouse_field.bind(event_type, self.evaluate_event)
 
 		for event_type in ['<Visibility>',
 		                   '<Unmap>', '<Map>', '<Expose>', '<FocusIn>',
 		                   '<FocusOut>', '<Circulate>', '<Colormap>',
 		                   '<Gravity>', '<Reparent>', '<Property>',
 		                   '<Destroy>', '<Activate>', '<Deactivate>']:
-			self.app_text.bind(event_type, self.evaluate_event)
+			self.bind(event_type, self.evaluate_event)
 
 	def get_widget1(self):
 
