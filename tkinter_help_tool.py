@@ -21,6 +21,7 @@ from tkinter import ttk, font
 from tkinter.scrolledtext import ScrolledText
 
 from hints import options
+from keysyms import keysyms
 
 
 def filter_list(_list=None, pattern=None):
@@ -291,6 +292,8 @@ class Application(Frame):
 		                   '<Destroy>', '<Activate>', '<Deactivate>']:
 			self.bind(event_type, self.log_event)
 
+		# self.generate_events()
+
 	def get_widget1(self):
 
 		if self.cbox1_var.get() in {'Tk', 'Menu', 'Misc', 'Pack', 'Place',
@@ -453,14 +456,23 @@ class Application(Frame):
 
 	def log_event(self, event):
 		self.events_text.configure(state=NORMAL)
-		if type(event.keycode) is int:
+		if (type(event.keycode) is int) and (event.keycode not in {8}):
 			self.events_text.insert(0.1,
-			                        f"KEYSYM_NUM: {event.keysym_num} | STATE MASK: {event.state} == {hex(event.state)} == {bin(event.state)}\n")
+			                        f"|  STATE MASK: {event.state} == "
+			                        f"{hex(event.state)} == "
+			                        f"{bin(event.state)}  "
+			                        f"|  KEYSYM_NUM: {event.keysym_num}\n"
+			                        f"{120 * '-'}\n")
 		self.events_text.insert(0.1, f"{event}\n")
-
-		# for attr in event.__dict__.items():
-		# 	self.events_text.insert(0.1, f"{attr}\n")
 		self.events_text.configure(state=DISABLED)
+
+	# def generate_events(self):
+	# 	for keysym in keysyms:
+	# 		try:
+	# 			self.event_generate("<KeyPress>", keysym=keysym)
+	# 		except TclError as err:
+	# 			print(err)
+
 
 app = Application()
 app.master.title('Tkinter Help Tool')
