@@ -70,6 +70,7 @@ class Application(Frame):
 		self.events_frm = None
 		self.sensor_lf = None
 		self.mouse_field = None
+		self.gen_btn = None
 		self.entry_field = None
 		self.events_text = None
 		self.definition_var = StringVar()
@@ -132,6 +133,7 @@ class Application(Frame):
 
 		# Definition
 		self.top = self.winfo_toplevel()
+		self.top.title('Tkinter Help Tool')
 		self.notebook = ttk.Notebook(self)
 
 		self.caption_label = ttk.Label(self, textvariable=self.cbox1_var,
@@ -200,11 +202,15 @@ class Application(Frame):
 		self.methods_text = ScrolledText(self.methods_frm, bg='#ffffdd',
 		                                 fg='#663300',
 		                                 wrap='word',
-		                                 font=font.Font(size=11), height=60)
+		                                 # font=font.Font(size=11),
+		                                 font=('TkFixedFont', 11),
+		                                 height=60)
 		self.options_text = ScrolledText(self.options_frm, bg='#ffffdd',
 		                                 fg='#663300',
 		                                 wrap='word',
-		                                 font=font.Font(size=11), height=60)
+		                                 # font=font.Font(size=11),
+		                                 font=('TkFixedFont', 11),
+		                                 height=60)
 		self.sensor_lf = ttk.Labelframe(self.events_frm, text='Sensor field',
 		                                labelanchor='n', height=140)
 		self.mouse_field = ttk.Label(self.sensor_lf, anchor='n',
@@ -213,16 +219,21 @@ class Application(Frame):
 		                             text='\nmove mouse here '
 		                                  '\nand push a button\n',
 		                             width=30)
+		self.gen_btn = ttk.Button(self.sensor_lf,
+		                          text='Generate KeyPress Events',
+		                          command=self.generate_events)
 		self.entry_field = ttk.Entry(self.sensor_lf,
 		                             textvariable=self.entry_field_var)
 		self.events_text = ScrolledText(self.events_frm, bg='#ffffdd',
 		                                fg='#663300',
 		                                wrap='word',
-		                                font=font.Font(size=11), height=60)
+		                                font=('Courier', 11),
+		                                height=60)
 		old_stdout = sys.stdout
 		sys.stdout = my_stdout = io.StringIO()
 		self.events_text.configure(state=NORMAL)
 		print(help(Event))
+		print(help(EventType))
 		self.events_text.insert(0.1, f"\n{my_stdout.getvalue()}\n")
 		self.events_text.configure(state=DISABLED)
 		sys.stdout = old_stdout
@@ -252,6 +263,7 @@ class Application(Frame):
 		self.options_text.grid(sticky='nesw')
 		self.sensor_lf.pack(side='top', expand=FALSE)
 		self.mouse_field.pack(side='top', fill='both', expand=FALSE)
+		self.gen_btn.pack(side='top', fill='both', expand=FALSE)
 		self.entry_field.pack(side='top', fill='both', expand=FALSE)
 		self.events_text.pack(side='top', fill='both', expand=TRUE)
 
@@ -279,20 +291,18 @@ class Application(Frame):
 		                lambda e: self.showButton.invoke())
 
 		for event_type in ['<KeyPress>', '<KeyRelease>']:
-			self.entry_field.bind(event_type, self.log_event)
+			self.entry_field.bind(event_type, self.log_all_events)
 
 		for event_type in ['<ButtonPress>', '<ButtonRelease>', '<MouseWheel>',
 		                   '<Motion>', '<Enter>', '<Leave>']:
-			self.mouse_field.bind(event_type, self.log_event)
+			self.mouse_field.bind(event_type, self.log_all_events)
 
 		for event_type in ['<Visibility>',
 		                   '<Unmap>', '<Map>', '<Expose>', '<FocusIn>',
 		                   '<FocusOut>', '<Circulate>', '<Colormap>',
 		                   '<Gravity>', '<Reparent>', '<Property>',
 		                   '<Destroy>', '<Activate>', '<Deactivate>']:
-			self.bind(event_type, self.log_event)
-
-		# self.generate_events()
+			self.bind(event_type, self.log_all_events)
 
 	def get_widget1(self):
 
@@ -454,26 +464,31 @@ class Application(Frame):
 		self.options_text.configure(state=DISABLED)
 		sys.stdout = old_stdout
 
-	def log_event(self, event):
+	def log_all_events(self, event):
 		self.events_text.configure(state=NORMAL)
-		if (type(event.keycode) is int) and (event.keycode not in {8}):
-			self.events_text.insert(0.1,
-			                        f"|  STATE MASK: {event.state} == "
-			                        f"{hex(event.state)} == "
-			                        f"{bin(event.state)}  "
-			                        f"|  KEYSYM_NUM: {event.keysym_num}\n"
-			                        f"{120 * '-'}\n")
-		self.events_text.insert(0.1, f"{event}\n")
+		if event.keycode not in {8}:
+			self.events_text.insert(0.1, f"| {event.keysym:^12} "
+			                             f"| {event.keycode:>3} "
+			                             f"| {event.keysym_num:>5} "
+			                             f"| {event}\n")
 		self.events_text.configure(state=DISABLED)
 
-	# def generate_events(self):
-	# 	for keysym in keysyms:
-	# 		try:
-	# 			self.event_generate("<KeyPress>", keysym=keysym)
-	# 		except TclError as err:
-	# 			print(err)
-
+	def generate_events(self):
+		self.entry_field.unbind('<KeyPress>')
+		self.top.bind('<KeyPress>', self.log_all_events)
+		for k in reversed(keysyms[1:]):
+			try:
+				app.event_generate("<KeyPress>", keysym=k)
+			except TclError as err:
+				print(err)
+		self.top.unbind('<KeyPress>')
+		self.entry_field.bind('<KeyPress>', self.log_all_events)
+		self.events_text.configure(state=NORMAL)
+		self.events_text.insert(0.1, f"|{'.key  sym':<14}"
+		                             f"|{'code':^5}"
+		                             f"|{'_num':^7}"
+		                             f"|{'event':^28}\n")
+		self.events_text.configure(state=DISABLED)
 
 app = Application()
-app.master.title('Tkinter Help Tool')
 app.mainloop()
