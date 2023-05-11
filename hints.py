@@ -792,7 +792,12 @@ options = {
 	         "length of the text, whichever is larger."
 	         "\nYou may also specify a width value in an associated style. If "
 	         "values are specified both in the widget constructor call and in "
-	         "the style, the former takes priority.",
+	         "the style, the former takes priority."
+	         "\nThe following dimension units may be used:\n"
+	         "        c	Centimeters\n"
+	         "        i	Inches\n"
+	         "        m	Millimeters\n"
+	         "        p	Printer's points (about 1/72″)",
 	"wrap": "This option controls the display of lines that are too wide."
 	        "\nWith the default behavior, wrap=tk.CHAR, any line that gets too "
 	        "long will be broken at any character."

@@ -203,13 +203,13 @@ class Application(Frame):
 		                                 fg='#663300',
 		                                 wrap='word',
 		                                 # font=font.Font(size=11),
-		                                 font=('TkFixedFont', 11),
+		                                 font=('', 11),
 		                                 height=60)
 		self.options_text = ScrolledText(self.options_frm, bg='#ffffdd',
 		                                 fg='#663300',
 		                                 wrap='word',
 		                                 # font=font.Font(size=11),
-		                                 font=('TkFixedFont', 11),
+		                                 font=('', 11),
 		                                 height=60)
 		self.sensor_lf = ttk.Labelframe(self.events_frm, text='Sensor field',
 		                                labelanchor='n', height=140)
@@ -221,13 +221,13 @@ class Application(Frame):
 		                             width=30)
 		self.gen_btn = ttk.Button(self.sensor_lf,
 		                          text='Generate KeyPress Events',
-		                          command=self.generate_events)
+		                          command=self.generate_KeyPress_events)
 		self.entry_field = ttk.Entry(self.sensor_lf,
 		                             textvariable=self.entry_field_var)
 		self.events_text = ScrolledText(self.events_frm, bg='#ffffdd',
 		                                fg='#663300',
 		                                wrap='word',
-		                                font=('Courier', 11),
+		                                font=('Fira Code', 10),
 		                                height=60)
 		old_stdout = sys.stdout
 		sys.stdout = my_stdout = io.StringIO()
@@ -473,7 +473,7 @@ class Application(Frame):
 			                             f"| {event}\n")
 		self.events_text.configure(state=DISABLED)
 
-	def generate_events(self):
+	def generate_KeyPress_events(self):
 		self.entry_field.unbind('<KeyPress>')
 		self.top.bind('<KeyPress>', self.log_all_events)
 		for k in reversed(keysyms[1:]):
@@ -489,6 +489,7 @@ class Application(Frame):
 		                             f"|{'_num':^7}"
 		                             f"|{'event':^28}\n")
 		self.events_text.configure(state=DISABLED)
+
 
 app = Application()
 app.mainloop()
