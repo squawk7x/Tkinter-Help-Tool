@@ -116,6 +116,7 @@ class Application(Frame):
 		                        ('Widget', 'BaseWidget', 'Misc') +
 		                        ('Pack', 'Place', 'Grid') +
 		                        ('messagebox', 'filedialog', 'colorchooser') +
+		                        ('font.Font', 'ttk.Style') +
 		                        ('object',))
 		self.cbox2['values'] = self.cbox1['values']
 		self.option_menu_choices = self.cbox1['values']
